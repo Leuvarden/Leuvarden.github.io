@@ -1,0 +1,37 @@
+@font-face {
+  font-family: Intro;
+  src: url('fonts/Intro.otf');
+}
+
+@font-face {
+  font-family: ElektraLight;
+  src: url('fonts/ElektraLight.otf');
+}
+
+@font-face {
+  font-family: ElektraMedium;
+  src: url('fonts/ElektraMediumPro.otf');
+}
+
+main .pro-repair h2 {
+  font-size: 18px;
+}
+
+main .pro-repair ol,
+main .pro-repair ul {
+  list-style-type: none;
+  width: 550px;
+}
+
+/*main .pro-repair ol ul li {
+  display: inline;
+}
+
+main .pro-repair ol ul li + li {
+   width: 55;
+   margin-left: 40px;
+}*/
+
+main .pro-repair ol li:nth-child(2n) {
+  padding: 0 0 10px 0;
+}

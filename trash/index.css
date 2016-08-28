@@ -1,0 +1,365 @@
+@font-face {
+    font-family: Intro;
+    src: url("fonts/Intro.otf");
+}
+
+@font-face {
+    font-family: ElektraLight;
+    src: url("fonts/ElektraLight.otf");
+}
+
+@font-face {
+    font-family: ElektraMedium;
+    src: url("fonts/ElektraMediumPro.otf");
+}
+
+body {
+  font-family: ElektraMedium, Tahoma, sans-serif;
+  font-size: 100%;
+  color: #7e7e7e;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Intro, sans-serif;
+  color: #474642;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*h1 + p,
+p + p {
+         text-indent: 1em;
+    }*/
+
+.grey {
+  color: #7e7e7e;
+}
+
+.white {
+  color: white;
+}
+
+.dark-grey {
+  color: #636363;
+}
+
+.orange {
+  /*color: #fa7f14;*/
+  color: #fea23d;
+}
+
+.tile {
+    display: inline-block;
+    overflow: hidden;
+    }
+    .tile a {
+     display: block;
+     height: 100%;
+     width: 100%;
+    }
+
+.wrapper-full {
+  width: 100%;
+  background-color: #f7f7f7;
+
+  }
+  .wrapper {
+  width: 75%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/******************************************************/
+
+header {
+  /*background-color: #2f2e29;*/
+  background-image: url("img/bg.jpg");
+  color: white;
+  font-size: 16px;
+  max-height: 500px;
+}
+
+
+header h1 {
+    font-size: 25px;
+    color: white;
+}
+
+header nav .logo {
+  width: 220px;
+  height: 60px;
+  background: url(img/logo.png) no-repeat 0px 12px;
+}
+
+header nav .logo a {
+  margin-left: 46px;
+  margin-top: 17px;
+}
+
+header ul,
+footer ul,
+footer ol,
+main .details ol {
+  list-style-type: none;
+}
+
+header .our-sto {
+  margin-top: 54px;
+  width: 570px;
+}
+
+header .contacts {
+  width: 300px;
+  height: 180px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+header .contacts h1 {
+  font-size: 18px;
+}
+
+header nav {
+  /*background-color: rgba(212, 129, 41, 0.5);*/
+  background-color: rgba(250, 127, 20, .5);
+  font-family: Intro, sans-serif;
+  font-size: 15px;
+}
+
+header nav ul {
+  float: right;
+  margin-top: 23px;
+}
+
+header nav ul li {
+  display: inline;
+  padding: 25px 8px;
+  margin-left: -5px;
+  height: 100%;
+}
+
+header nav ul li a {
+  padding: 25px 6px;
+}
+
+header nav ul li:hover,
+header nav ul li:active
+ {
+  background-color:  rgba(212, 129, 41, 0.5);
+}
+
+main section {
+  padding: 20px 0px;
+}
+
+main .summary {
+  margin-top: 20px;
+}
+
+main .services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+main .services .thumb {
+  flex: 0 1 auto;
+  min-width: 200px;
+  width: 33%;
+  text-align: center;
+  margin-top: 45px;
+}
+
+main .services .thumb a,
+main .details a {
+  color: #636363;
+}
+
+main .services .thumb a p {
+  color: #636363;
+  font-size: 14px;
+  margin: 0px;
+}
+
+main .services .thumb a h1 {
+  font-size: 16px;
+  color: #636363;
+  margin: 20px 0px;
+}
+
+main .services .thumb:hover a,
+main .services .thumb:hover p,
+main .services  .thumb:hover h1 {
+  color: #fa7f14;
+  transition: 0.2s;
+}
+
+main .pro-repair .wrapper {
+  padding: 20px 0;
+   display: flex;
+   justify-content: space-around;
+}
+
+main .pro-repair .caption,
+main .pro-repair .picture {
+  flex: 0 1 auto;
+}
+
+main .pro-repair .caption {
+  min-width: 350px;
+  max-width: 550px;
+  font-size: 14px;
+}
+
+main .pro-repair .picture {
+    min-width: 200px;
+    max-width: 300px;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;;
+}
+
+main .pro-repair .picture img {
+  max-width: 100%;
+}
+
+main input[type='submit'] {
+  background-color: #eca151;
+  color: white;
+  text-align: center;
+  border:1px solid transparent;
+  font-size: 16px;
+  border-radius: 1px;
+  padding: 5px;
+}
+
+main .feed .fa-quote-right {
+  float: right;
+}
+
+footer {
+  background-color: #393939;
+  padding-top: 40px;
+  font-family: ElektraLight,sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+footer h5 {
+  color: #a6a6a6;
+  font-size: 14px;
+}
+
+footer ul, footer ol {
+    padding-top: 10px;
+}
+
+footer ul li, footer ol li {
+    padding: 1px;
+}
+
+footer .widgets {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer .col {
+  flex: 0 1 auto;
+  width: 30%;
+}
+
+footer .col a:hover {
+  color: orange;
+}
+
+footer .copyright {
+  margin: 0 auto;
+
+  text-align: center;
+  width: 130px; padding: 15px;
+}
+
+ footer .copyright a {
+   color: #636363;
+   font-family: ElektraMedium, sans-serif;
+   font-size: 14px;
+
+ }
+
+/********************remont**************/
+main .remont h2 {
+  font-size: 18px;
+}
+
+main .remont ol,
+main .remont ul {
+  list-style-type: none;
+  width: 550px;
+}
+
+/*main .pro-repair ol ul li {
+  display: inline;
+}
+
+main .pro-repair ol ul li + li {
+   width: 55;
+   margin-left: 40px;
+}*/
+
+main .remont ol li:nth-child(2n) {
+  padding: 0 0 10px 0;
+}
+
+/****************about********************************/
+
+main .quality-management h1 {
+  font-size: 25px;
+}
+
+main .quality-management h2 {
+  font-size: 16px;
+  margin: 10px 0 5px 0;
+}
+
+main .quality-management p {
+  margin: 0;
+}
+
+/*main .our-team .wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+main .our-team .photo {
+  flex: 0 1 auto;
+  width: 50px;
+  height: 50px;
+}
+
+main .our-team .photo img {
+  max-width: 100%;
+}*/
+
+main .wrapper {
+  padding: 20px 0;
+}
