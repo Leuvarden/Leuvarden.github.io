@@ -5,6 +5,7 @@
 }
 [data-carousel-control="wrapper"] {
 	display: table-cell;
+	width: 100%;
 	overflow: hidden;
 }
 [data-carousel-control="wrapper"] ul {

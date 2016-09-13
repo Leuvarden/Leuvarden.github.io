@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang='ru'>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Детали, запчасти и расходники для внедорожников и кроссоверов в Минске">
     <title>Детали для внедорожников в Минске</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css" /> -->
     <link rel="stylesheet" type="text/css" media="only screen and (min-device-width:501px)" href="css/index1.css" />
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:500px)" href="css/index1-mobile-m.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script defer src="js/index.js"></script>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-
-    <script async type="text/javascript">
-        window.onscroll = function up() {
-            document.getElementById('up-button').style.display = (window.pageYOffset > '300' ? 'block' : 'none');
-        }
-    </script>
-
 </head>
 
 <body>
-
     <header>
         <nav>
             <div class="wrapper">
                 <h2><a href="index1.html" class="yellow">Сервис 4х4</a></h2>
-
                 <div class="contacts">
-                    <i class='fa fa-phone'></i> +375 29 617 04 13
-                    <br><i class='fa fa-phone'></i> +375 29 355 05 10
-                    <br><i class='fa fa-home'></i> пер. С. Ковалевской, 54/1
+                    <img src="img/svg/phone.svg" alt="" /> +375 29 355 05 10
+                    <br><img src="img/svg/phone.svg" alt="" /> +375 33 357 05 10
+                    <br><img src="img/svg/home.svg" alt="" /> пер. С. Ковалевской, 54/1
                 </div>
-
                 <ul>
                     <li><a href="index1.html" class="white">Главная</a></li>
                     <li><a href="remont.html" class="white">Ремонт</a></li>
@@ -52,7 +41,6 @@
     </header>
 
     <main>
-
         <section class="details-summary">
             <div class="wrapper">
                 <h2>Запчасти для внедорожников</h2>
@@ -61,23 +49,23 @@
                     <br>Если деталь не подошла, мы вернем вам деньги в течении 14 дней в соответствии с Законом о защите прав потребителей. (надо почитать его и добавить еще что-нибудь)
                     <br>Мы реализуем запчасти для марок таких таких таких и таких.
                 </p>
-
                 <h2>Что ищем?</h2>
-
                 <ol>
-                    <li><a href="#chemicals" class="orange">Автохимия</a></li>
-                    <li><a href="#shock-absorber" class="orange">Амортизаторы</a></li>
-                    <li><a href="#accumulators" class="orange">Аккумуляторы</a></li>
-                    <li><a href="#engine" class="orange">Детали двигателя</a></li>
-                    <li><a href="#suspension" class="orange">Детали подвески</a></li>
-                    <li><a href="#brake-disks" class="orange">Тормозные диски</a></li>
+                    <li><a href="#shock-absorbers" class="orange">Амортизаторы</a></li>
+                    <li><a href="#air-filters" class="orange">Воздушные фильтры</a></li>
+                    <li><a href="#stabilizer-sleeve" class="orange">Втулки стабилизатора</a></li>
+                    <li><a href="#grm-set" class="orange">Комплекты ГРМ</a></li>
+                    <li><a href="#transmission-set" class="orange">Комплекты сцепления</a></li>
+                    <li><a href="#oil-filters" class="orange">Масляные фильтры</a></li>
+                    <li><a href="#steering-tip" class="orange">Рулевые наконечники</a></li>
+                    <li><a href="#chemicals" class="orange">Технические жидкости</a></li>
                     <li><a href="#brake-pads" class="orange">Тормозные колодки</a></li>
-                    <li><a href="#clutch" class="orange">Сцепление</a></li>
+                    <li><a href="#brake-disks" class="orange">Тормозне диски</a></li>
+                    <li><a href="#stabilizer-rod" class="orange">Тяга стабилизатора</a></li>
+                    <li><a href="#spherical-bearings" class="orange">Шаровые опоры</a></li>
                 </ol>
-
                 <a href="#form" class="a-button">Заказать звонок</a>
             </div>
-
         </section>
 
         <section class="details">
@@ -85,437 +73,782 @@
             <article id="chemicals">
                 <div class="wrapper">
 
-                    <h2>Автохимия</h2>
+                    <h2>Технические жидкости</h2>
                     <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
+                        <thead>
+                            <tr>
+                                <th>Наименование</th>
+                                <th>Castrol</th>
+                                <th>Eni</th>
+                                <th>Другие</th>
+                            </tr>
                         </thead>
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Масло синтетическое 5W30 (5W40) 1л</td>
+                            <td>22,00 руб.</td>
+                            <td>15,00 руб.</td>
+                            <td>9,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
+                            <td>Масло полусинтетическое 10W40 1л</td>
+                            <td>12,00 руб</td>
+                            <td>10,00 руб</td>
+                            <td>7,00 руб</td>
                         </tr>
-
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Масло трансмиссионное 75W90 1л</td>
+                            <td>23,00 руб</td>
+                            <td>—</td>
+                            <td>20,00 руб</td>
                         </tr>
-
                         <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Масло трансмиссионное 80W90 1л</td>
+                            <td>13,50 руб</td>
+                            <td>—</td>
+                            <td>7,00 руб</td>
                         </tr>
-
                         <tr>
-                            <td>Антифриз такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Антифриз красный (фиолетовый) 1л</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>15,00 руб</td>
                         </tr>
-
                         <tr>
-                            <td>Антифриз вот такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Антифриз синий (желтый, зеленый) 1л</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>15,00 руб</td>
                         </tr>
-
                         <tr>
-                            <td>Тормозная жидкость</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>Гидравлическое ATF D-III (D-II) 1л</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>17,00 руб</td>
+                        </tr>
+                        <tr>
+                            <td>Гидравлическое ATF D-IV (D-V) 1л</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>37,00 руб</td>
                         </tr>
                     </table>
                 </div>
             </article>
 
-            <article id="shock-absorber">
-                <div class="wrapper">
-
-                    <h2>Амортизаторы</h2>
-                    <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
-                        </thead>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
-                        </tr>
-
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Антифриз такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Антифриз вот такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Тормозная жидкость</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-                    </table>
+            <article id="oil-filters">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Масляные фильтры</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <!-- <th rowspan="2">Автомобиль</td>
+                        <th colspan="3">Уровень качества</td>
+                      </tr>
+                      <tr>
+                        <th>Оригинальные</td>
+                        <th>Лицензия Filtron, MANN</td>
+                        <th>Эконом-класс (Patron, Stellox)</td>
+                      </tr> -->
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия Filtron, MANN</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                            </thead>
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>32,00 руб.</td>
+                                <td>15,00 руб.</td>
+                                <td>6,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>21,00 руб.</td>
+                                <td>16,00 руб.</td>
+                                <td>13,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>35,00 руб.</td>
+                                <td>11,00 руб.</td>
+                                <td>8,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>22,00 руб.</td>
+                                <td>13,00 руб.</td>
+                                <td>7,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>MITSUBISHI Pajero 3.2Di-D</td>
+                                <td>45,00 руб.</td>
+                                <td>18,00 руб.</td>
+                                <td>12,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>NISSAN Qashqai 2.0dCi</td>
+                                <td>30,00 руб.</td>
+                                <td>8,00 руб.</td>
+                                <td>7,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>SUBARU Forester 2.5</td>
+                                <td>20,00 руб.</td>
+                                <td>8,00 руб.</td>
+                                <td>6,50 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>TOYOTA Land Cruiser 100 4.2</td>
+                                <td>25,00 руб.</td>
+                                <td>15,00 руб.</td>
+                                <td>11,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </article>
 
-            <article id="accumulators">
+            <article id="air-filters">
                 <div class="wrapper">
-
-                    <h2>Аккумуляторы</h2>
-
+                    <h2>Воздушные фильтры</h2>
                     <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
+                        <thead>
+                            <tr>
+                                <th>Автомобиль</th>
+                                <th>Оригинальные</th>
+                                <th>Лицензия (Filtron, MANN)</th>
+                                <th>Эконом-класс (Patron, Stellox)</th>
+                            </tr>
                         </thead>
-
                         <tr>
-                            <td>Аккумулятор для одного</td>
-                            <td>Mitsubishi, Nissan, Kia</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>BMW X5 3.0D</td>
+                            <td>80,00 руб.</td>
+                            <td>40,00 руб.</td>
+                            <td>24,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Аккумулятор для другого</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
+                            <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                            <td>21,00 руб.</td>
+                            <td>16,00 руб.</td>
+                            <td>10,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Аккумулятор для третьего</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota, Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>KIA Sportage 2.0 CRDi</td>
+                            <td>27,00 руб.</td>
+                            <td>15,00 руб.</td>
+                            <td>10,00 руб.</td>
                         </tr>
-
-                    </table>
-                </div>
-            </article>
-
-            <article id="engine">
-                <div class="wrapper">
-
-                    <h2>Детали двигателя</h2>
-                    <table>
-                      <thead>
                         <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
-                        </thead>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>LAND ROVER Discovery II 2.5TD</td>
+                            <td>25,00 руб.</td>
+                            <td>20,00 руб.</td>
+                            <td>12,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
+                            <td>MITSUBISHI Pajero 3.2Di-D</td>
+                            <td>44,00 руб.</td>
+                            <td>31,00 руб.</td>
+                            <td>16,00 руб.</td>
                         </tr>
-
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>NISSAN Qashqai 2.0dCi</td>
+                            <td>31,00 руб.</td>
+                            <td>8,00 руб.</td>
+                            <td>7,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>SUBARU Forester 2.5</td>
+                            <td>30,00 руб.</td>
+                            <td>7,00 руб.</td>
+                            <td>6,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Антифриз такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>TOYOTA Land Cruiser 100 4.2</td>
+                            <td>45,00 руб.</td>
+                            <td>32,00 руб.</td>
+                            <td>25,00 руб.</td>
                         </tr>
-
-                        <tr>
-                            <td>Антифриз вот такой</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Тормозная жидкость</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </article>
-
-            <article id="suspension">
-                <div class="wrapper">
-
-                    <h2>Детали подвески</h2>
-                    <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
-                        </thead>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </article>
-
-            <article id="brake-disks">
-                <div class="wrapper">
-
-                    <h2>Тормозные диски</h2>
-                    <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
-                        </thead>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
-                        </tr>
-
                     </table>
                 </div>
             </article>
 
             <article id="brake-pads">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Тормозные колодки</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия (LPR, Icer)</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>200,00 руб.</td>
+                                <td>65,00 руб.</td>
+                                <td>34,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>160,00 руб.</td>
+                                <td>56,00 руб.</td>
+                                <td>40,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>110,00 руб.</td>
+                                <td>60,00 руб.</td>
+                                <td>30,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>170,00 руб.</td>
+                                <td>75,00 руб.</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>MITSUBISHI Pajero 3.2Di-D</td>
+                                <td>155,00 руб.</td>
+                                <td>40,00 руб.</td>
+                                <td>30,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>NISSAN Qashqai 2.0dCi</td>
+                                <td>185,00 руб.</td>
+                                <td>47,00 руб.</td>
+                                <td>39,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>SUBARU Forester 2.5</td>
+                                <td>240,00 руб.</td>
+                                <td>53,00 руб.</td>
+                                <td>42,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>TOYOTA Land Cruiser 100 4.2</td>
+                                <td>200,00 руб.</td>
+                                <td>48,00 руб.</td>
+                                <td>44,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article id="brake-disks">
                 <div class="wrapper">
-
-                    <h2>Тормозные колодки</h2>
+                    <h2>Тормозные диски</h2>
                     <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
+                        <thead>
+                            <tr>
+                                <th>Автомобиль</th>
+                                <th>Оригинальные</th>
+                                <th>Лицензия (Filtron, MANN)</th>
+                                <th>Эконом-класс (Patron, Stellox)</th>
+                            </tr>
                         </thead>
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>BMW X5 3.0D</td>
+                            <td>310,00 руб.</td>
+                            <td>140,00 руб.</td>
+                            <td>99,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
+                            <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                            <td>185,00 руб.</td>
+                            <td>93,00 руб.</td>
+                            <td>85,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>KIA Sportage 2.0 CRDi</td>
+                            <td>180,00 руб.</td>
+                            <td>120,00 руб.</td>
+                            <td>80,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>LAND ROVER Discovery II 2.5TD</td>
+                            <td>300,00 руб.</td>
+                            <td>85,00 руб.</td>
+                            <td>55,00 руб.</td>
                         </tr>
-
+                        <tr>
+                            <td>MITSUBISHI Pajero 3.2Di-D</td>
+                            <td>230,00 руб.</td>
+                            <td>100,00 руб.</td>
+                            <td>52,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>NISSAN Qashqai 2.0dCi</td>
+                            <td>180,00 руб.</td>
+                            <td>80,00 руб.</td>
+                            <td>60,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>SUBARU Forester 2.5</td>
+                            <td>450,00 руб.</td>
+                            <td>130,00 руб.</td>
+                            <td>100,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>TOYOTA Land Cruiser 100 4.2</td>
+                            <td>120,00 руб.</td>
+                            <td>78,00 руб.</td>
+                            <td>65,00 руб.</td>
+                        </tr>
                     </table>
                 </div>
             </article>
 
-            <article id="clutch">
+            <article id="spherical-bearings">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Шаровые опоры</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия (CTR, ASmetal)</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                                </tr>
+                            </thead>
+
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>160,00 руб.</td>
+                                <td>34,00 руб.</td>
+                                <td>22,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>30,00 руб.</td>
+                                <td>26,00 руб.</td>
+                                <td>10,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>55,00 руб.</td>
+                                <td>30,00 руб.</td>
+                                <td>22,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>105,00 руб.</td>
+                                <td>35,00 руб.</td>
+                                <td>23,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>MITSUBISHI Pajero 3.2Di-D</td>
+                                <td>73,00 руб.</td>
+                                <td>39,00 руб.</td>
+                                <td>27,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>NISSAN Qashqai 2.0dCi</td>
+                                <td>70,00 руб.</td>
+                                <td>23,00 руб.</td>
+                                <td>19,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>SUBARU Forester 2.5</td>
+                                <td>65,00 руб.</td>
+                                <td>22,00 руб.</td>
+                                <td>18,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>TOYOTA Land Cruiser 100 4.2</td>
+                                <td>450,00 руб.</td>
+                                <td>67,00 руб.</td>
+                                <td>22,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article id="stabilizer-rod">
                 <div class="wrapper">
 
-                    <h2>Сцепление</h2>
+                    <h2>Тяга стабилизатора</h2>
                     <table>
-                      <thead>
-                        <tr>
-                            <th>Описание детали</th>
-                            <th>Доступно для марок</th>
-                            <th>Стоимость</th>
-                            <th>Примечание</th>
-                          </tr>
+                        <thead>
+                            <tr>
+                                <th>Автомобиль</th>
+                                <th>Оригинальные</th>
+                                <th>Лицензия (CTR, ASmetal)</th>
+                                <th>Эконом-класс (Patron, Stellox)</th>
+                            </tr>
                         </thead>
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota,</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>BMW X5 3.0D</td>
+                            <td>78,00 руб.</td>
+                            <td>26,00 руб.</td>
+                            <td>16,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло другое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td>Климатическая установка: кондиционер</td>
+                            <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                            <td>40,00 руб.</td>
+                            <td>18,00 руб.</td>
+                            <td>16,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>KIA Sportage 2.0 CRDi</td>
+                            <td>50,00 руб.</td>
+                            <td>25,00 руб.</td>
+                            <td>21,00 руб.</td>
                         </tr>
-
                         <tr>
-                            <td>Масло еще вот такое</td>
-                            <td>Mitsubishi, Nissan, Kia, Mercedes, Toyota</td>
-                            <td>17 руб. 50 коп.</td>
-                            <td></td>
+                            <td>LAND ROVER Discovery II 2.5TD</td>
+                            <td>265,00 руб.</td>
+                            <td>26,00 руб.</td>
+                            <td>20,00 руб.</td>
                         </tr>
-
+                        <tr>
+                            <td>MITSUBISHI Pajero 3.2Di-D</td>
+                            <td>113,00 руб.</td>
+                            <td>24,00 руб.</td>
+                            <td>12,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>NISSAN Qashqai 2.0dCi</td>
+                            <td>47,00 руб.</td>
+                            <td>21,00 руб.</td>
+                            <td>18,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>SUBARU Forester 2.5</td>
+                            <td>60,00 руб.</td>
+                            <td>20,00 руб.</td>
+                            <td>11,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>TOYOTA Land Cruiser 100 4.2</td>
+                            <td>30,00 руб.</td>
+                            <td>20,00 руб.</td>
+                            <td>15,00 руб.</td>
+                        </tr>
                     </table>
                 </div>
             </article>
 
+            <article id="stabilizer-sleeve">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Втулка стабилизатора поперечной устойчивости</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия (LMI, Teknorot)</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                                </tr>
+                            </thead>
+
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>40,00 руб.</td>
+                                <td>10,00 руб.</td>
+                                <td>8,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>8,00 руб.</td>
+                                <td>6,00 руб.</td>
+                                <td>4,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>18,00 руб.</td>
+                                <td>12,00 руб.</td>
+                                <td>9,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>13,00 руб.</td>
+                                <td>7,00 руб.</td>
+                                <td>7,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>MITSUBISHI Pajero 3.2Di-D</td>
+                                <td>15,00 руб.</td>
+                                <td>6,00 руб.</td>
+                                <td>5,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>NISSAN Qashqai 2.0dCi</td>
+                                <td>22,00 руб.</td>
+                                <td>13,00 руб.</td>
+                                <td>8,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>SUBARU Forester 2.5</td>
+                                <td>15,00 руб.</td>
+                                <td>7,00 руб.</td>
+                                <td>4,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>TOYOTA Land Cruiser 100 4.2</td>
+                                <td>16,00 руб.</td>
+                                <td>4,00 руб.</td>
+                                <td>3,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article id="shock-absorbers">
+                <div class="wrapper">
+
+                    <h2>Амортизаторы</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Автомобиль</th>
+                                <th>Kayaba</th>
+                                <th>Лицензия (Gariel, Monroe)</th>
+                                <th>Эконом-класс (Patron, Stellox)</th>
+                            </tr>
+                        </thead>
+
+                        <tr>
+                            <td>BMW X5 3.0D</td>
+                            <td>340,00 руб.</td>
+                            <td>200,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                            <td>150,00 руб.</td>
+                            <td>120,00 руб.</td>
+                            <td>70,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>KIA Sportage 2.0 CRDi</td>
+                            <td>330,00 руб.</td>
+                            <td>130,00 руб.</td>
+                            <td>90,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>LAND ROVER Discovery II 2.5TD</td>
+                            <td>130,00 руб.</td>
+                            <td>140,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>MITSUBISHI Pajero 3.2Di-D</td>
+                            <td>150,00 руб.</td>
+                            <td>100,00 руб.</td>
+                            <td>75,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>NISSAN Qashqai 2.0dCi</td>
+                            <td>450,00 руб.</td>
+                            <td>200,00 руб.</td>
+                            <td>90,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>SUBARU Forester 2.5</td>
+                            <td>230,00 руб.</td>
+                            <td>190,00 руб.</td>
+                            <td>155,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>TOYOTA Land Cruiser 100 4.2</td>
+                            <td>150,00 руб.</td>
+                            <td>130,00 руб.</td>
+                            <td>100,00 руб.</td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+
+            <article id="steering-tip">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Рулевой наконечник</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия (CTR, ASmetal)</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                                </tr>
+                            </thead>
+
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>150,00 руб.</td>
+                                <td>26,00 руб.</td>
+                                <td>23,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>110,00 руб.</td>
+                                <td>28,00 руб.</td>
+                                <td>19,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>50,00 руб.</td>
+                                <td>25,00 руб.</td>
+                                <td>19,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>130,00 руб.</td>
+                                <td>23,00 руб.</td>
+                                <td>17,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>MITSUBISHI Pajero 3.2Di-D</td>
+                                <td>68,00 руб.</td>
+                                <td>33,00 руб.</td>
+                                <td>20,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>NISSAN Qashqai 2.0dCi</td>
+                                <td>134,00 руб.</td>
+                                <td>26,00 руб.</td>
+                                <td>24,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>SUBARU Forester 2.5</td>
+                                <td>65,00 руб.</td>
+                                <td>21,00 руб.</td>
+                                <td>18,00 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>TOYOTA Land Cruiser 100 4.2</td>
+                                <td>77,00 руб.</td>
+                                <td>31,00 руб.</td>
+                                <td>20,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <article id="transmission-set">
+                <div class="wrapper">
+                    <h2>Комплект сцепления</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Автомобиль</th>
+                                <th>Exedy, Aisin</th>
+                                <th>Luk</th>
+                                <th>Эконом-класс (Patron, Stellox)</th>
+                            </tr>
+                        </thead>
+
+                        <tr>
+                            <td>BMW X5 3.0D</td>
+                            <td>—</td>
+                            <td>44,50 руб.</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                            <td>77,40 руб.</td>
+                            <td>28,00 руб.</td>
+                            <td>21,00 руб.</td>
+                        </tr>
+                        <tr>
+                            <td>KIA Sportage 2.0 CRDi</td>
+                            <td>70,00 руб.</td>
+                            <td>45,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>LAND ROVER Discovery II 2.5TD</td>
+                            <td>43,00 руб.</td>
+                            <td>58,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>MITSUBISHI Pajero 3.2Di-D</td>
+                            <td>106,00 руб.</td>
+                            <td>59,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>NISSAN Qashqai 2.0dCi</td>
+                            <td>80,00 руб.</td>
+                            <td>60,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>SUBARU Forester 2.5</td>
+                            <td>60,00 руб.</td>
+                            <td>43,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>TOYOTA Land Cruiser 100 4.2</td>
+                            <td>149,00 руб.</td>
+                            <td>46,00 руб.</td>
+                            <td>—</td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+
+            <article id="grm-set">
+                <div class="wrapper-full">
+                    <div class="wrapper">
+                        <h2>Комплект ГРМ</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Автомобиль</th>
+                                    <th>Оригинальные</th>
+                                    <th>Лицензия (Gates,Ina)</th>
+                                    <th>Эконом-класс (Patron, Stellox)</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>BMW X5 3.0D</td>
+                                <td>—</td>
+                                <td>39,00 руб.</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>HYUNDAI Sante Fe 2.0 CRDi</td>
+                                <td>400,00 руб.</td>
+                                <td>193,00 руб.</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>KIA Sportage 2.0 CRDi</td>
+                                <td>400,00 руб.</td>
+                                <td>193,00 руб.</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>LAND ROVER Discovery II 2.5TD</td>
+                                <td>110,00 руб.</td>
+                                <td>45,00 руб.</td>
+                                <td>20,00 руб.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
         </section>
 
         <section class="form" id="form">
             <div class="wrapper">
                 <h2>Заказать звонок</h2>
-
-                <p>
-                    Не уверены, подойдет ли деталь? Заполните форму — мы перезвоним в течение двадцати минут!
-                </p>
+                <p>Не уверены, подойдет ли деталь? Заполните форму — мы перезвоним в течение двадцати минут!</p>
                 <form id="contact-form" method="post" enctype="multipart/form-data" action="SendMail.php">
                     <ul>
                         <li>
@@ -550,17 +883,24 @@
         </section>
 
         <div class="tile up" id="up-button">
-            <a href="#"><i class='fa fa-arrow-up fa-2x white'></i></a>
+            <a href="#"><img src="img/svg/up-chevron-button.svg" alt="" /></i>
+            </a>
         </div>
-
         <div class="call" id="call-button">
-            <a href="details.html#form"><i class='fa fa-phone fa-2x white'></i></a>
+            <a href="#form"><img src="img/svg/phone.svg" alt="" /></i>
+            </a>
         </div>
-
     </main>
 
     <footer>
         <div class="wrapper">
+            <div class='discount'>
+                <form class="" action="index.html" method="post">
+                    <label for="">Хотите получить скидку 10% на все виды ремонта? Введите адрес электронной почты, чтобы получить промо-код!</label>
+                    <br><input type="text" name="carNumber" value="" placeholder="name@mail.com, 86775">
+                    <input type="submit" name="name" value="Отправить">
+                </form>
+            </div>
             <div class="col">
                 <h5>Контакты</h5>
                 <ul>
@@ -571,7 +911,6 @@
                     <li>E-mail: t.e.a.proservice@mail.ru</li>
                 </ul>
             </div>
-
             <div class="col">
                 <h5>Время работы</h5>
                 <ul>
@@ -581,7 +920,6 @@
                     <li>Адрес: пер. С. Ковалевской, 54/1</li>
                 </ul>
             </div>
-
             <div class="col">
                 <h5>Навигация</h5>
                 <ul>
@@ -597,7 +935,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

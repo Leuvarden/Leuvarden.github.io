@@ -82,6 +82,7 @@ header {
     background-attachment: fixed;
     color: white;
     font-size: 16px;
+    border-bottom: 5px solid rgba(250, 127, 20, 0.7);
     overflow: hidden;
 }
 header h2 {
@@ -112,6 +113,7 @@ header nav ul li {
     display: inline;
     padding: 22px 7px;
     font-size: 18px;
+    -webkit-transition: .5s;
     transition: .5s;
 }
 header nav ul li a {
@@ -123,8 +125,11 @@ header nav ul li:active {
 }
 header nav .contacts {
     float: right;
-    margin-top: 8px;
-    width: 208px;
+    width: 220px;
+    margin-top: 5px;
+}
+header nav .contacts img {
+  height: 15px;
 }
 header .our-sto {
     margin: 0 auto;
@@ -146,8 +151,8 @@ main .services {
     padding-top: 30px;
 }
 main .services .thumb {
-    min-width: 100px;
-    width: 30%;
+    min-width: 150px;
+    max-width: 30%;
     height: 220px;
     text-align: center;
     padding: 10px;
@@ -155,21 +160,25 @@ main .services .thumb {
 main .services .thumb a,
 main .details a {
     color: #636363;
+    -webkit-transition: .5s;
     transition: .5s;
 }
 main .services .thumb a p {
     color: #636363;
     margin: 0px;
+    -webkit-transition: .5s;
     transition: .5s;
 }
 main .services .thumb a h2 {
     font-size: 16px;
     margin: 20px 0px;
+    -webkit-transition: .5s;
     transition: .5s;
 }
 main .services .thumb svg {
     height: 80px;
     fill: #636363;
+    -webkit-transition: .5s;
     transition: .5s;
 }
 main .services .thumb:hover a,
@@ -182,7 +191,9 @@ main .services .thumb:hover svg {
 }
 main .pro-repair .caption,
 main .pro-repair .picture {
-    flex: 0 1 auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
 }
 main .pro-repair .caption {
     min-width: 210px;
@@ -191,6 +202,7 @@ main .pro-repair .caption {
 main .pro-repair .picture {
     padding: 15px 10px 15px 0;
     float: right;
+    /* height: 300px; */
 }
 main .pro-repair article svg {
     width: 100%;
@@ -198,31 +210,37 @@ main .pro-repair article svg {
     fill: #696E63;
     margin: 0 auto;
 }
+main .feed img {
+  height: 20px;
+}
 main input[type='submit'],
-main .a-button {
+main .a-button,
+footer input[type='submit'] {
     background-color: #eca151;
     color: white;
     text-align: center;
     border: 1px solid transparent;
     font-size: 16px;
     border-radius: 1px;
-    padding: 3px;
+    /* padding: 3px; */
     cursor: pointer;
-    padding: 5px;
+    padding: 3px;
 }
 main .up {
     display: none;
     position: fixed;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     right: 1%;
     bottom: 0;
-    background-color: #eca151;
     opacity: .4;
     border-radius: 8px;
 }
 main .up a {
     padding: 5px;
+}
+main .up img {
+  width: 50px;
 }
 main .up:hover {
     opacity: 1;
@@ -237,17 +255,33 @@ main .call {
   background-color: #eca151;
   padding: 10px;
   border-radius: 100%;
+  -webkit-transition: .7s;
   transition: .7s;
 }
 main .call:hover {
   background-color: #FFFE27;
 }
+main .call img {
+  width: 30px;
+  margin: 0 auto;
+}
 footer {
     background-color: #393939;
-    padding-top: 20px;
+    border-top: 5px solid rgba(250, 127, 20, 0.7);
     font-family: ElektraLight, sans-serif;
     color: white;
     font-size: 12px;
+}
+footer .discount {
+  text-align: center;
+  padding: 15px;
+}
+footer .discount input[type='text'] {
+  padding: 5px;
+  border: 1px solid #eca151;
+  outline: 0;
+  background-color: #f7f7f7;
+  width: 50%;
 }
 footer h5 {
     color: #7f7f7f;
@@ -282,7 +316,8 @@ footer .copyright a {
 main .remont h2 {
     font-size: 18px;
 }
-main .remont ol, main .remont ul {
+main .remont ol,
+main .remont ul {
     list-style-type: none;
     width: 550px;
 }
@@ -310,14 +345,6 @@ main .form textarea {
     height: 70px;
     padding: 5px;
     resize: none;
-}
-
-main .discount input[type='text'] {
-  padding: 5px;
-  border: 1px solid #eca151;
-  outline: 0;
-  background-color: #f7f7f7;
-  width: 50%;
 }
 
 /****************about********************************/
@@ -350,6 +377,7 @@ main .details-summary ol {
 }
 main .details-summary li a {
     font-size: 18px;
+    -webkit-transition: 0.4s;
     transition: 0.4s;
 }
 main .details-summary li a:hover {
@@ -358,34 +386,55 @@ main .details-summary li a:hover {
 main ol {
     margin: 0 0 10px 0;
 }
-main .details table {
+main .details table,
+main .remont table {
     width: 100%;
+    border-collapse: collapse;
+    background-color: white;
 }
-main .details th {
+main .details th,
+main .remont th {
     background-color: #eca151;
     color: black;
 }
 main .details tr,
 main .details td,
-main .details th {
+main .details th,
+main .remont tr,
+main .remont td,
+main .remont th {
     border: 2px solid #eca151;
+    -webkit-transition: .2s;
     transition: .2s;
+
 }
 main .details td,
-main .details th {
-    padding: 7px;
-    height: 50px;
+main .details th,
+main .remont td,
+main .remont th {
+    padding: 5px;
+    height: 35px;
 }
-main .details tr:hover {
+main .details tr:hover,
+main .remont tr:hover {
     background-color: lightgrey;
     color: black;
 }
 main .details tr td:first-child {
-    width: 25%;
+    width: 40%;
 }
-main .details tr td:nth-child(2) {
-    width: 41%;
+
+main .details tr td:not(first-child) {
+    width: 20%;
 }
-main .details tr td:nth-child(3) {
-    width: 15%;
+
+main .remont tr td:last-child {
+    width: 30%;
+}
+main .remont .caption {
+    width: 70%;
+    padding: 10px 0;
+}
+main .remont .caption br {
+    text-indent: 1em;
 }
