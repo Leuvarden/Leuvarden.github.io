@@ -16,8 +16,7 @@ $('.up').click(function(){
      });
 
   $('#feed-slide').dbpasCarousel({
-      itemsVisible: 1
+      itemsVisible: 1,
+      autoSlide: true,
   });
-
-
 });

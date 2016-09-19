@@ -1,20 +1,21 @@
+/*@charset 'UTF-8';
 @font-face {
   font-family: Intro;
   src: url('fonts/Intro.otf');
-}
+}*/
 
 @font-face {
   font-family: ElektraLight;
   src: url('fonts/ElektraLight.otf');
 }
 
-@font-face {
+/*@font-face {
   font-family: ElektraMedium;
   src: url('fonts/ElektraMediumPro.otf');
-}
+}*/
 
 body {
-  font-family: ElektraThin, Tahoma, sans-serif;
+  font-family: Roboto, Tahoma, sans-serif;
   font-size: 100%;
   width: 100%;
   color: #696e63;
@@ -25,16 +26,16 @@ a {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: Intro, sans-serif;
+  font-family: Open Sans, sans-serif;
   font-size: 1.4em;
   margin: 0;
   padding: 0;
   color: #474642;
 }
 
-h2 {
+/*h2 {
   margin: 0;
-}
+}*/
 
 ul, ol {
   margin: 0;
@@ -96,23 +97,22 @@ main ol li {
 
 header {
   color: white;
-  background: url('img/bg1.jpg') repeat;
+  background: url('img/bg-m.jpg') no-repeat -54px -44px;
   background-color: #2f2e29;
 }
 
-header h1 {
-  margin: 15px;
-  color: white;
+header h2 {
+  margin: 5px;
 }
 
 header nav {
-  font-family: Intro, sans-serif;
-  /*background-color: rgba(212, 129, 41, 0.5);*/
+   font-family: Open Sans, sans-serif;
   background-color: rgba(250, 127, 20, .7);
 }
 
 header nav ul, header nav .contacts {
-  font-family: ElektraMedium, Tahoma, sans-serif;
+  font-family: Roboto, Tahoma, sans-serif;
+  margin: 0 5px;
 }
 
 header nav ul {
@@ -132,10 +132,6 @@ header nav ul li a {
   padding: 22px 6px;
 }
 
-header nav ul li:hover, header nav ul li:active {
-  background-color: rgba(212, 129, 41, .5);
-}
-
 header nav .contacts img {
   height: 15px;
 }
@@ -147,17 +143,23 @@ header .our-sto {
   text-align: center;
 }
 
+main .summary {
+  padding-top: 10px;
+  text-align: center;
+}
+
 main .services .thumb {
   margin: 10px 0;
   padding: 30px 10px;
   text-align: center;
 }
 
-main .services .thumb i {
+/*main .services .thumb i {
   font-size: 7em;
-}
+}*/
 
-main .services .thumb a, main .details a {
+main .services .thumb a,
+main .details a {
   color: #636363;
 }
 
@@ -169,12 +171,6 @@ main .services .thumb a p {
 main .services .thumb a h1 {
   margin: 20px 0;
   color: #636363;
-}
-
-main .services .thumb:hover a, main .services .thumb:hover p,
-main .services .thumb:hover h1 {
-  transition: .4s;
-  color: #fa7f14;
 }
 
 main .services .thumb svg {
@@ -228,7 +224,6 @@ footer input[type='submit'] {
   border: 1px solid transparent;
   border-radius: 1px;
   background-color: #eca151;
-  /* padding: 6px; *//* margin: 15px 0; */
 }
 
 main button a {
@@ -313,18 +308,13 @@ footer .col {
   margin: 0 auto;
   padding: 20px 0;
 }
-
-footer .col a:hover {
-  color: orange;
-}
-
 footer .copyright {
   float: left;
   padding: 15px;
 }
 
 footer .copyright a {
-  font-family: ElektraMedium, sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 1.4em;
   color: #636363;
 }
@@ -375,7 +365,7 @@ main .quality-management p {
 }
 
 main .wrapper {
-  padding: 0 0;
+  /* padding: 0 0; */
 }
 
 /*details*/
@@ -388,16 +378,10 @@ main .details article h2 {
   margin: 15px 5px;
 }
 
-main .summary a:hover {
-  transition: .2s;
-  color: #fa7f14;
-}
-
 main .details th, main .remont th {
   color: black;
   background-color: #eca151;
 }
-
 table {
   width: 99%;
   border-collapse: collapse;
@@ -454,26 +438,26 @@ table {
   padding-right: 10px;
   white-space: nowrap;
 }
-.details td:nth-of-type(1):before {content: 'ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÑŒ';}
-.details td:nth-of-type(2):before {content: 'ÐžÑ€Ð¸Ð³Ð¸Ð½Ð°Ð»ÑŒÐ½Ñ‹Ðµ';}
-.details td:nth-of-type(4):before {content: 'Ð­ÐºÐ¾Ð½Ð¾Ð¼-ÐºÐ»Ð°ÑÑ Patron';}
-#chemicals td:nth-of-type(1):before {content: 'ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ';}
+.details td:nth-of-type(1):before {content: 'Автомобиль';}
+.details td:nth-of-type(2):before {content: 'Оригинальные';}
+.details td:nth-of-type(4):before {content: 'Эконом-класс Patron';}
+#chemicals td:nth-of-type(1):before {content: 'Наименование';}
 #chemicals td:nth-of-type(2):before {content: 'Castrol';}
 #chemicals td:nth-of-type(3):before {content: 'Eni';}
-#chemicals td:nth-of-type(4):before {content: 'Ð”Ñ€ÑƒÐ³Ð¸Ðµ';}
-#oil-filters td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ Filtron';}
-#air-filters td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ Filtron';}
-#brake-pads td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ LPR';}
-#brake-disks td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ LPR';}
-#spherical-bearings td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ CTR';}
-#stabilizer-rod td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ CTR';}
-#stabilizer-sleeve td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ LMI';}
+#chemicals td:nth-of-type(4):before {content: 'Другие';}
+#oil-filters td:nth-of-type(3):before {content: 'Лицензия Filtron';}
+#air-filters td:nth-of-type(3):before {content: 'Лицензия Filtron';}
+#brake-pads td:nth-of-type(3):before {content: 'Лицензия LPR';}
+#brake-disks td:nth-of-type(3):before {content: 'Лицензия LPR';}
+#spherical-bearings td:nth-of-type(3):before {content: 'Лицензия CTR';}
+#stabilizer-rod td:nth-of-type(3):before {content: 'Лицензия CTR';}
+#stabilizer-sleeve td:nth-of-type(3):before {content: 'Лицензия LMI';}
 #shock-absorbers td:nth-of-type(2):before {content: 'Kayaba';}
-#shock-absorbers td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ Gabriel';}
-#steering-tip td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ CTR';}
+#shock-absorbers td:nth-of-type(3):before {content: 'Лицензия Gabriel';}
+#steering-tip td:nth-of-type(3):before {content: 'Лицензия CTR';}
 #transmission-set td:nth-of-type(2):before {content: 'Exedy';}
 #transmission-set td:nth-of-type(3):before {content: 'Luk';}
-#grm-set td:nth-of-type(3):before {content: 'Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ Gates';}
+#grm-set td:nth-of-type(3):before {content: 'Лицензия Gates';}
 main .remont table {
     width: 100%;
     border-collapse: collapse;

@@ -1,36 +1,38 @@
-@font-face {
+@charset 'UTF-8';
+/*@font-face {
     font-family: Intro;
     src: url("fonts/Intro.otf");
-}
+}*/
 @font-face {
     font-family: ElektraLight;
     src: url("fonts/ElektraLight.otf");
 }
-@font-face {
+/*@font-face {
     font-family: ElektraMedium;
     src: url("fonts/ElektraMediumPro.otf");
-}
+}*/
 
 body {
-    font-family: ElektraMedium, Tahoma, sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 100%;
-    color: #696E63;
+    color: #4E5245;
+    /* background-color: red; */
 }
 a {
     text-decoration: none;
 }
 h1, h2, h3, h4, h5 {
-    font-family: Intro, sans-serif;
+    font-family: Open Sans, sans-serif;
     color: #474642;
     padding: 0;
     margin: 0;
 }
 h1 {
-    font-size: 22px;
+    font-size: 24px;
     /* color: rgba(250, 127, 20, 1); */
 }
 h2 {
-    font-size: 18px;
+    font-size: 20px;
 }
 ul, ol {
     padding: 0;
@@ -47,8 +49,8 @@ ul, ol {
     color: #636363;
 }
 .orange {
-    /* color: rgba(250, 127, 20, 16); */
-    color: #fea23d;
+    color: rgba(250, 127, 20, 16);
+    /* color: #FF9E27; */
 }
 .yellow {
     color: #FFFE27;
@@ -92,7 +94,7 @@ header h2 {
 header nav {
     /*background-color: rgba(212, 129, 41, 0.5);*/
     background-color: rgba(250, 127, 20, 0.7);
-    font-family: Intro, sans-serif;
+    font-family: Roboto Slab, sans-serif;
     font-size: 15px;
 }
 header nav h2 {
@@ -101,12 +103,12 @@ header nav h2 {
 }
 header nav ul,
 header nav .contacts {
-    font-family: ElektraMedium, Tahoma, sans-serif;
+    font-family: Open Sans, Tahoma, sans-serif;
 }
 header nav ul {
     float: right;
     margin: -1px 10px -1px 10px;
-    border-top: 1px solid #eca151;
+    border-top: 1px solid #FF9E27;
 }
 header nav ul li {
     float: left;
@@ -141,18 +143,21 @@ header .our-sto {
 header .our-sto h1 {
     color: white;
 }
+main {
+  min-height: calc(100vh - 495px);
+}
 main .summary {
     text-align: center;
 }
 main .summary h2 {
-  font-size: 22px;
+  font-size: 24px;
 }
 main .services {
     padding-top: 30px;
 }
 main .services .thumb {
     min-width: 150px;
-    max-width: 30%;
+    width: 29.9%;
     height: 220px;
     text-align: center;
     padding: 10px;
@@ -170,8 +175,8 @@ main .services .thumb a p {
     transition: .5s;
 }
 main .services .thumb a h2 {
-    font-size: 16px;
-    margin: 20px 0px;
+    font-size: 19px;
+    margin: 15px 0px;
     -webkit-transition: .5s;
     transition: .5s;
 }
@@ -189,26 +194,21 @@ main .services .thumb:hover h2 {
 main .services .thumb:hover svg {
     fill: #fa7f14;
 }
-main .pro-repair .caption,
-main .pro-repair .picture {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-}
 main .pro-repair .caption {
-    min-width: 210px;
+    min-width: 400px;
+    width: 60%;
     padding: 10px 0;
 }
 main .pro-repair .picture {
-    padding: 15px 10px 15px 0;
+    padding: 15px;
     float: right;
     /* height: 300px; */
 }
 main .pro-repair article svg {
-    width: 100%;
+    width: 300px;
     max-height: 220px;
     fill: #696E63;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 main .feed img {
   height: 20px;
@@ -216,7 +216,7 @@ main .feed img {
 main input[type='submit'],
 main .a-button,
 footer input[type='submit'] {
-    background-color: #eca151;
+    background-color: #FF9E27;
     color: white;
     text-align: center;
     border: 1px solid transparent;
@@ -252,7 +252,7 @@ main .call {
   height: 30px;
   width: 30px;
   text-align: center;
-  background-color: #eca151;
+  background-color: #FF9E27;
   padding: 10px;
   border-radius: 100%;
   -webkit-transition: .7s;
@@ -271,6 +271,7 @@ footer {
     font-family: ElektraLight, sans-serif;
     color: white;
     font-size: 12px;
+    padding-top: 10px;
 }
 footer .discount {
   text-align: center;
@@ -278,7 +279,7 @@ footer .discount {
 }
 footer .discount input[type='text'] {
   padding: 5px;
-  border: 1px solid #eca151;
+  border: 1px solid #FF9E27;
   outline: 0;
   background-color: #f7f7f7;
   width: 50%;
@@ -295,9 +296,9 @@ footer ul li {
 }
 footer .col {
     display: inline-block;
-    height: 110px;
-    width: 24%;
-    padding: 0 4%;
+    min-height: 110px;
+    width: 29%;
+    padding: 0 1%;
 }
 footer .col a:hover {
     color: #FFFE27;
@@ -316,14 +317,14 @@ footer .copyright a {
 main .remont h2 {
     font-size: 18px;
 }
-main .remont ol,
+/*main .remont ol,
 main .remont ul {
     list-style-type: none;
     width: 550px;
-}
-main .remont ol li:nth-child(2n) {
+}*/
+/*main .remont ol li:nth-child(2n) {
     padding: 0 0 10px 0;
-}
+}*/
 main .form ul li {
     margin: 10px 10px;
 }
@@ -337,7 +338,7 @@ main .form textarea {
     width: 300px;
     height: 23px;
     padding: 5px;
-    border: 1px solid #eca151;
+    border: 1px solid #FF9E27;
     outline: 0;
     background-color: #f7f7f7;
 }
@@ -374,6 +375,7 @@ main .details article h2 {
 main .details-summary p,
 main .details-summary ol {
   margin-top: 5px;
+  /* display: inline; */
 }
 main .details-summary li a {
     font-size: 18px;
@@ -406,7 +408,6 @@ main .remont th {
     border: 2px solid #eca151;
     -webkit-transition: .2s;
     transition: .2s;
-
 }
 main .details td,
 main .details th,
@@ -434,7 +435,15 @@ main .remont tr td:last-child {
 main .remont .caption {
     width: 70%;
     padding: 10px 0;
+    min-width: 500px;
 }
-main .remont .caption br {
+article p,
+p+p,
+ul+p {
     text-indent: 1em;
+}
+
+article ul {
+  list-style-type: disc;
+  margin-left: 1.2em;
 }
