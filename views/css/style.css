@@ -29,10 +29,16 @@ form {
   font-weight: 800;
 }
 
+/**
+ * Added will-change: left,
+ * To declare ahead-of-time what properties are likely to change in the future
+ * CSS to hint the browser using a new composite layer.
+ */
 .mover {
   position: fixed;
   width: 256px;
   z-index: -1;
+  will-change: left;
 }
 
 .randomPizzaContainer {
