@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+
+	<title>Minesweeper</title>
+
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+	<!-- Game Engine -->
+	<script src="assets/js/phaser.min.js"></script>
+
+	<!-- Game States -->
+	<script src="assets/js/boot.js"></script>
+	<script src="assets/js/preload.js"></script>
+	<script src="assets/js/title.js"></script>
+	<script src="assets/js/minesweeper.js"></script>
+</head>
+<body>
+
+	<script>
+		(function() {
+			var game = new Phaser.Game(640, 1136, Phaser.AUTO);
+
+			game.state.add('Boot', boot);
+			game.state.add('Preload', preload);
+			//game.state.add('Title', title);
+			game.state.add('Game', minesweeper);
+
+			game.state.start('Boot');
+		})();
+	</script>
+
+</body>
+</html>
