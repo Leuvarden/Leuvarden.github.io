@@ -11,7 +11,7 @@
 	<div id="test"></div>
 
 	<script type="text/javascript">
-		var game = new Phaser.Game(2200, 1300, Phaser.AUTO, 'test', {preload: preload, create: create});
+		var game = new Phaser.Game(1200, 1200, Phaser.AUTO, 'test', {preload: preload, create: create});
 
 		function preload() {
 				game.load.image('center', 'assets/center.png');
@@ -28,10 +28,10 @@
 		function create() {
 			game.stage.backgroundColor = '#e2e3dd';
 
-			let textContainer = game.add.graphics(0, 0);
-			textContainer.beginFill(0xffffff);
-    	textContainer.drawRect(0, 0, game.world.width/2, game.world.height);
-			textContainer.endFill();
+			// let textContainer = game.add.graphics(0, 0);
+			// textContainer.beginFill(0xffffff);
+    	// textContainer.drawRect(0, 0, game.world.width/2, game.world.height);
+			// textContainer.endFill();
 
 			let circle1 = createCircle('1');
 			let circle2 = createCircle('2');
@@ -42,7 +42,7 @@
 
 
 			function createCircle(name) {
-				let circle = game.add.sprite(game.world.centerX*1.5, game.world.centerY, name);
+				let circle = game.add.sprite(game.world.centerX, game.world.centerY, name);
 				circle.anchor.setTo(0.5, 0.5);
 				circle.inputEnabled = true;
 				if (name !== 'center') {
@@ -70,10 +70,14 @@
 				return possiblePositions[randomPosition];
 			}
 
+			let decipher = game.add.sprite(game.world.centerX, game.world.centerY, 'DECIPHER');
+			decipher.alpha = 0;
+			decipher.anchor.setTo(0.5, 0.5);
+
 			let isFinished = function() {
 				if (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0) {
-					let decipher = game.add.sprite(game.world.centerX*1.5, game.world.centerY, 'DECIPHER');
-					decipher.anchor.setTo(0.5, 0.5);
+
+					game.add.tween(decipher).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
 				}
 				return (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0);
 			}
@@ -82,8 +86,8 @@
 				if (isFinished() === true) {
 					circle.angle = circle.angle;
 				} else {
-					nextangle = Math.round(circle.angle + 30); //because otherwise I'll get -119.99999 instead of -120
-					game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
+					circle.angle = Math.round(circle.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					//game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
 					isFinished();
 				}
 			}
@@ -92,10 +96,12 @@
 				if (isFinished() === true) {
 					circle.angle = circle.angle;
 				} else {
-					next1 = Math.round(circle1.angle + 30); //because otherwise I'll get -119.99999 instead of -120
-					next2 = Math.round(circle2.angle + 30);
-					game.add.tween(circle1).to( { angle: next1 }, 200, Phaser.Easing.Linear.None, true);
-					game.add.tween(circle2).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
+					circle1.angle = Math.round(circle1.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					circle3.angle = Math.round(circle3.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					// next1 = Math.round(circle1.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					// next2 = Math.round(circle3.angle + 30);
+					// game.add.tween(circle1).to( { angle: next1 }, 200, Phaser.Easing.Linear.None, true);
+					// game.add.tween(circle3).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
 					isFinished();
 				}
 			}
@@ -104,11 +110,13 @@
 				if (isFinished() === true) {
 					circle.angle = circle.angle;
 				} else {
-					next2 = Math.round(circle2.angle + 30); //because otherwise I'll get -119.99999 instead of -120
-					next3 = Math.round(circle3.angle + 30);
-					//game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
-					game.add.tween(circle2).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
-					game.add.tween(circle3).to( { angle: next3 }, 200, Phaser.Easing.Linear.None, true);
+					circle2.angle = Math.round(circle2.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					circle5.angle = Math.round(circle5.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					// next2 = Math.round(circle2.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					// next3 = Math.round(circle5.angle + 30);
+					// //game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
+					// game.add.tween(circle2).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
+					// game.add.tween(circle5).to( { angle: next3 }, 200, Phaser.Easing.Linear.None, true);
 					isFinished();
 				}
 			}
