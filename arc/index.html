@@ -11,63 +11,228 @@
 	<div id="test"></div>
 
 	<script type="text/javascript">
-		var game = new Phaser.Game(700, 700, Phaser.AUTO, 'test', {preload: preload, create: create});
+		var game = new Phaser.Game(2200, 1300, Phaser.AUTO, 'test', {preload: preload, create: create});
 
 		function preload() {
-			game.load.image('center', 'circle2.png');
-			game.load.image('outer', 'circle1.png');
-			game.load.image('middle',  'circle3.png')
+				game.load.image('center', 'assets/center.png');
+				game.load.image('1', 'assets/1.png');
+				game.load.image('2', 'assets/2.png');
+				game.load.image('3', 'assets/3.png');
+				game.load.image('4', 'assets/4.png');
+				game.load.image('5', 'assets/5.png');
+				game.load.image('DECIPHER', 'assets/DECIPHER.png');
+				game.load.image('mail', 'assets/mail.jpg');
+				game.load.bitmapFont('myriad', 'assets/fonts/font.png', 'assets/fonts/font.xml');
 		}
 
 		function create() {
-			game.stage.backgroundColor = '#ffffff';
-			let outer = game.add.sprite(game.world.centerX, game.world.centerY, 'outer');
-			let middle = game.add.sprite(game.world.centerX, game.world.centerY, 'middle');
-			let center = game.add.sprite(game.world.centerX, game.world.centerY, 'center');
+			game.stage.backgroundColor = '#e2e3dd';
 
-			outer.anchor.setTo(0.5, 0.5);
-			center.anchor.setTo(0.5, 0.5);
-			middle.anchor.setTo(0.5, 0.5);
+			let textContainer = game.add.graphics(0, 0);
+			textContainer.beginFill(0xffffff);
+    	textContainer.drawRect(0, 0, game.world.width/2, game.world.height);
+			textContainer.endFill();
 
-			outer.inputEnabled = true;
-			middle.inputEnabled = true;
-			center.inputEnabled = true; //if center have no enabled input, clicking on it will enable
+			let circle1 = createCircle('1');
+			let circle2 = createCircle('2');
+			let circle3 = createCircle('3');
+			let circle4 = createCircle('4');
+			let circle5 = createCircle('5');
+			let center =  createCircle('center');
 
 
-			let possiblePositions = [30, 60, 90, 120, 150, -180, -150, -120, -90, -60, -30];
-			let getRandomAngle = function () {
+			function createCircle(name) {
+				let circle = game.add.sprite(game.world.centerX*1.5, game.world.centerY, name);
+				circle.anchor.setTo(0.5, 0.5);
+				circle.inputEnabled = true;
+				if (name !== 'center') {
+					circle.angle = getRandomAngle();
+					//circle.events.onInputDown.add(rotateCircle, this);
+					circle.events.onInputOver.add(mouseOver, this);
+					circle.events.onInputOut.add(mouseOut, this);
+					circle.tint = 0xcacaca;
+				}
+				if (name!=='1' && name!=='2') {
+					circle.events.onInputDown.add(rotateCircle, this);
+				}
+				if (name === '1') {
+					circle.events.onInputDown.add(rotateCircle1, this);
+				}
+				if (name === '2') {
+					circle.events.onInputDown.add(rotateCircle2, this);
+				}
+				return circle;
+			}
+
+			function getRandomAngle() {
+				let possiblePositions = [30, 60, 90, 120, 150, -180, -150, -120, -90, -60, -30];
 				let randomPosition = Math.floor(Math.random() * possiblePositions.length);
-				console.log(possiblePositions[randomPosition]);
 				return possiblePositions[randomPosition];
 			}
 
-			outer.angle = getRandomAngle();
-			middle.angle = getRandomAngle();
-
-
-				let isFinished = function () {
-					console.log('outer '+outer.angle);
-					console.log('middle '+middle.angle);
-					if (outer.angle === 0 && middle.angle === 0) {
-						text = game.add.text(250, 16, '', { fill: '#ff87ff' });
-						text.text = "You win";
-					}
-					return (outer.angle === 0 && middle.angle === 0);
+			let isFinished = function() {
+				if (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0) {
+					let decipher = game.add.sprite(game.world.centerX*1.5, game.world.centerY, 'DECIPHER');
+					decipher.anchor.setTo(0.5, 0.5);
 				}
+				return (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0);
+			}
 
-			let rotateCircle = function (circle) {
+			function rotateCircle(circle) {
 				if (isFinished() === true) {
 					circle.angle = circle.angle;
 				} else {
-					circle.angle = Math.round(circle.angle+30); //because otherwise I'll get -119.99999 instead of -120
+					nextangle = Math.round(circle.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
+					isFinished();
 				}
 			}
 
-			outer.events.onInputDown.add(rotateCircle, this);
-			middle.events.onInputDown.add(rotateCircle, this);
-		}
+			function rotateCircle1(circle) {
+				if (isFinished() === true) {
+					circle.angle = circle.angle;
+				} else {
+					next1 = Math.round(circle1.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					next2 = Math.round(circle2.angle + 30);
+					game.add.tween(circle1).to( { angle: next1 }, 200, Phaser.Easing.Linear.None, true);
+					game.add.tween(circle2).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
+					isFinished();
+				}
+			}
 
+			function rotateCircle2(circle) {
+				if (isFinished() === true) {
+					circle.angle = circle.angle;
+				} else {
+					next2 = Math.round(circle2.angle + 30); //because otherwise I'll get -119.99999 instead of -120
+					next3 = Math.round(circle3.angle + 30);
+					//game.add.tween(circle).to( { angle: nextangle }, 200, Phaser.Easing.Linear.None, true);
+					game.add.tween(circle2).to( { angle: next2 }, 200, Phaser.Easing.Linear.None, true);
+					game.add.tween(circle3).to( { angle: next3 }, 200, Phaser.Easing.Linear.None, true);
+					isFinished();
+				}
+			}
+
+			function mouseOver(sprite) {
+				sprite.tint = 0xffffff;
+			}
+
+			function mouseOut(sprite) {
+				if (sprite.angle===0) {
+					sprite.tint = 0xffffff;
+				} else {
+					sprite.tint = 0xcacaca;
+				}
+
+				//function AddText() {
+					// var content = [
+					// "The sky above the port was the color of television, tuned to a dead channel.",
+					// "`It's not like I'm using,' Case heard someone say, as he shouldered his way ",
+					// "through the crowd around the door of the Chat. `It's like my body's developed",
+					// "this massive drug deficiency.' It was a Sprawl voice and a Sprawl joke.",
+					// "The Chatsubo was a bar for professional expatriates; you could drink there for",
+					// "a week and never hear two words in Japanese."
+					// ];
+					//
+					// var line = [];
+					//
+					// var wordIndex = 0;
+					// var lineIndex = 0;
+					//
+					// var wordDelay = 120;
+					// var lineDelay = 400;
+					//
+					// text = game.add.text(32, 32, '', { font: "32px Arial", fill: "#000000" });
+					//
+					// nextLine();
+					//
+					// function nextLine() {
+					// 	if (lineIndex === content.length) {
+					//   	return;
+					// 	}
+					// 	line = content[lineIndex].split(' ');
+					// 	wordIndex = 0;
+					// 	game.time.events.repeat(wordDelay, line.length, nextWord, this);
+					// 	lineIndex++;
+					// }
+					//
+					// function nextWord() {
+					// text.text = text.text.concat(line[wordIndex] + " ");
+					// wordIndex++;
+					// if (wordIndex === line.length)	{
+					//   	text.text = text.text.concat("\n");
+					//   	game.time.events.add(lineDelay, nextLine, this);
+					// 	}
+					// }
+					//
+				//}
+
+				//game.add.sprite(0, 0, 'mail');
+				//cipher = game.add.text(220, game.world.centerY, 'font-size:18px', {fill: '#000000'});
+				//cipher.text = "Sxlv od fodphxu jurqgdqwh gh od pxowlwxgh, hq txl vxffègh od froèuh à od vwxséidfwlrq, hw ghv edqghv sdufrxudqw oh erxohydug hq fuldqw : ‘Od géfkédqfh!’";
+
+			}
+
+		}
 	</script>
-</body>
+
+	<!-- <script type="text/javascript">
+		var game = new Phaser.Game(1700, 1700, Phaser.AUTO, 'test', {
+			preload: preload,
+			create: create
+		});
+
+		function preload() {
+			// game.load.image('center', 'circle2.png');
+			// game.load.image('outer', 'circle1.png');
+			// game.load.image('middle', 'circle3.png')
+			// game.load.image('bg', 'assets/bg.jpg')
+
+			 this.load.image('bg', 'assets/ww1.jpg');
+		 }
+
+		function create() {
+
+			//var sprite = this.add.sprite(0, 0, 'bg');
+			// circle = game.add.graphics(0, 0);
+			// circle.beginFill(0xFF0000, 1);
+			// circle.drawCircle(game.world.centerX, game.world.centerY,  300);
+			// sprite.mask = circle;
+
+
+		//game.add.image(64, 32, 'bg');
+		// let circle = game.add.graphics(0, 0);
+		//
+    // circle.beginFill(0xFF0000, 1);
+    // circle.drawCircle(game.world.centerX, game.world.centerY, 400);
+
+		//var bmd = game.make.bitmapData(320, 256);
+
+		//	And create an alpha mask image by combining pic and mask from the cache
+		//bmd.alphaMask('bg', circle);
+
+		//	A BitmapData is just a texture. You need to apply it to a sprite or image
+		//	to actually display it:
+		//game.add.image(game.world.centerX, 320, bmd).anchor.set(0.5, 0);
+
+		circles = game.add.group();
+		var sprite;
+
+    for (let i = 2; i > 0; i--)
+    	{
+				 let circle = game.add.graphics(0, 0);
+				 	circle.lineStyle(2, 0xffd900, 1);
+				  circle.beginFill(0xFF0000, 1);
+		      circle.drawCircle(game.world.centerX, game.world.centerY,  i*100-50);
+					circle.add.sprite(0, 0, 'bg');
+				//sprite = game.add.sprite(0, 0, 'bg');
+				//circle = game.add.graphics(0, 0);
+				//circle.beginFill(0xFF0000, 1);
+				//circle.drawCircle(game.world.centerX, game.world.centerY,  i*100-50);
+				//sprite.mask = circle;
+    	}
+		}
+	</script>
+</body> -->
 
 </html>
