@@ -11,7 +11,19 @@
 	<div id="test"></div>
 
 	<script type="text/javascript">
-		var game = new Phaser.Game(1200, 1200, Phaser.AUTO, 'test', {preload: preload, create: create});
+		var game = new Phaser.Game(1000, 560, Phaser.AUTO, 'test', {preload: preload, create: create});
+
+		let circle1;
+		let circle2;
+		let circle3;
+		let circle4;
+		let circle5;
+		let center;
+		let decipher;
+		let title;
+		let textarea;
+		let cipheredText;
+		let decipheredText;
 
 		function preload() {
 				game.load.image('center', 'assets/center.png');
@@ -20,29 +32,47 @@
 				game.load.image('3', 'assets/3.png');
 				game.load.image('4', 'assets/4.png');
 				game.load.image('5', 'assets/5.png');
+				game.load.image('5', 'assets/5.png');
+				game.load.image('pigeon', 'assets/pigeon.jpg');
 				game.load.image('DECIPHER', 'assets/DECIPHER.png');
-				game.load.image('mail', 'assets/mail.jpg');
-				game.load.bitmapFont('myriad', 'assets/fonts/font.png', 'assets/fonts/font.xml');
+				game.load.bitmapFont('Fira', 'assets/fonts/fira-sans.png', 'assets/fonts/fira-sans.fnt');
+				game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
 		}
 
 		function create() {
-			game.stage.backgroundColor = '#e2e3dd';
+			game.stage.backgroundColor = '#f95732';
+			title = game.add.bitmapText(game.world.centerX * 0.01, game.world.centerY * 0.01, 'Fira', 'LOST BATALLION\'S \nMESSAGE', 50);
+			title.tint = 0x000000;
 
-			// let textContainer = game.add.graphics(0, 0);
-			// textContainer.beginFill(0xffffff);
-    	// textContainer.drawRect(0, 0, game.world.width/2, game.world.height);
-			// textContainer.endFill();
+			textarea = game.add.graphics(0, 0);
+			textarea.beginFill(0xffffff);
+    	textarea.drawRect(game.world.centerX * 0.01, game.world.centerY * 0.5, 420, game.world.height * 0.72);
+			textarea.endFill();
 
-			let circle1 = createCircle('1');
-			let circle2 = createCircle('2');
-			let circle3 = createCircle('3');
-			let circle4 = createCircle('4');
-			let circle5 = createCircle('5');
-			let center =  createCircle('center');
+			game.add.sprite(game.world.centerX * 0.4, game.world.centerY * 1.2, 'pigeon');
 
+			cipheredText = game.add.bitmapText(game.world.centerX * 0.02, game.world.centerY * 0.52, 'Playfair', 'Ck gxk grutm znk xugj vgxgrkrr zu 724.6. Uax uct gxzorrkxe oy jxuvvotm g hgxxgmk joxkizre ut ay. Lux nkgbkty ygqk yzuv oz. ', 24);
+			cipheredText.maxWidth = 400;
+			cipheredText.tint = 0x000000;
+
+			decipheredText = game.add.bitmapText(game.world.centerX * 0.02, game.world.centerY * 0.52, 'Playfair', 'We are along the road paralell to 276.4. Our own artillery is dropping a barrage directly on us. For heavens sake stop it.', 24);
+			decipheredText.maxWidth = 400;
+			decipheredText.tint = 0x000000;
+			decipheredText.alpha = 0;
+
+			circle1 = createCircle('1');
+			circle2 = createCircle('2');
+			circle3 = createCircle('3');
+			circle4 = createCircle('4');
+			circle5 = createCircle('5');
+			center =  createCircle('center');
+
+			decipher = game.add.sprite(game.world.centerX * 1.43, game.world.centerY, 'DECIPHER');
+			decipher.alpha = 0;
+			decipher.anchor.setTo(0.5, 0.5);
 
 			function createCircle(name) {
-				let circle = game.add.sprite(game.world.centerX, game.world.centerY, name);
+				let circle = game.add.sprite(game.world.centerX * 1.43, game.world.centerY, name);
 				circle.anchor.setTo(0.5, 0.5);
 				circle.inputEnabled = true;
 				if (name !== 'center') {
@@ -70,14 +100,11 @@
 				return possiblePositions[randomPosition];
 			}
 
-			let decipher = game.add.sprite(game.world.centerX, game.world.centerY, 'DECIPHER');
-			decipher.alpha = 0;
-			decipher.anchor.setTo(0.5, 0.5);
-
 			let isFinished = function() {
 				if (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0) {
-
 					game.add.tween(decipher).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
+					game.add.tween(cipheredText).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+					game.add.tween(decipheredText).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
 				}
 				return (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0);
 			}
@@ -131,116 +158,12 @@
 				} else {
 					sprite.tint = 0xcacaca;
 				}
-
-				//function AddText() {
-					// var content = [
-					// "The sky above the port was the color of television, tuned to a dead channel.",
-					// "`It's not like I'm using,' Case heard someone say, as he shouldered his way ",
-					// "through the crowd around the door of the Chat. `It's like my body's developed",
-					// "this massive drug deficiency.' It was a Sprawl voice and a Sprawl joke.",
-					// "The Chatsubo was a bar for professional expatriates; you could drink there for",
-					// "a week and never hear two words in Japanese."
-					// ];
-					//
-					// var line = [];
-					//
-					// var wordIndex = 0;
-					// var lineIndex = 0;
-					//
-					// var wordDelay = 120;
-					// var lineDelay = 400;
-					//
-					// text = game.add.text(32, 32, '', { font: "32px Arial", fill: "#000000" });
-					//
-					// nextLine();
-					//
-					// function nextLine() {
-					// 	if (lineIndex === content.length) {
-					//   	return;
-					// 	}
-					// 	line = content[lineIndex].split(' ');
-					// 	wordIndex = 0;
-					// 	game.time.events.repeat(wordDelay, line.length, nextWord, this);
-					// 	lineIndex++;
-					// }
-					//
-					// function nextWord() {
-					// text.text = text.text.concat(line[wordIndex] + " ");
-					// wordIndex++;
-					// if (wordIndex === line.length)	{
-					//   	text.text = text.text.concat("\n");
-					//   	game.time.events.add(lineDelay, nextLine, this);
-					// 	}
-					// }
-					//
-				//}
-
-				//game.add.sprite(0, 0, 'mail');
-				//cipher = game.add.text(220, game.world.centerY, 'font-size:18px', {fill: '#000000'});
-				//cipher.text = "Sxlv od fodphxu jurqgdqwh gh od pxowlwxgh, hq txl vxffègh od froèuh à od vwxséidfwlrq, hw ghv edqghv sdufrxudqw oh erxohydug hq fuldqw : ‘Od géfkédqfh!’";
-
 			}
 
 		}
 	</script>
 
-	<!-- <script type="text/javascript">
-		var game = new Phaser.Game(1700, 1700, Phaser.AUTO, 'test', {
-			preload: preload,
-			create: create
-		});
 
-		function preload() {
-			// game.load.image('center', 'circle2.png');
-			// game.load.image('outer', 'circle1.png');
-			// game.load.image('middle', 'circle3.png')
-			// game.load.image('bg', 'assets/bg.jpg')
-
-			 this.load.image('bg', 'assets/ww1.jpg');
-		 }
-
-		function create() {
-
-			//var sprite = this.add.sprite(0, 0, 'bg');
-			// circle = game.add.graphics(0, 0);
-			// circle.beginFill(0xFF0000, 1);
-			// circle.drawCircle(game.world.centerX, game.world.centerY,  300);
-			// sprite.mask = circle;
-
-
-		//game.add.image(64, 32, 'bg');
-		// let circle = game.add.graphics(0, 0);
-		//
-    // circle.beginFill(0xFF0000, 1);
-    // circle.drawCircle(game.world.centerX, game.world.centerY, 400);
-
-		//var bmd = game.make.bitmapData(320, 256);
-
-		//	And create an alpha mask image by combining pic and mask from the cache
-		//bmd.alphaMask('bg', circle);
-
-		//	A BitmapData is just a texture. You need to apply it to a sprite or image
-		//	to actually display it:
-		//game.add.image(game.world.centerX, 320, bmd).anchor.set(0.5, 0);
-
-		circles = game.add.group();
-		var sprite;
-
-    for (let i = 2; i > 0; i--)
-    	{
-				 let circle = game.add.graphics(0, 0);
-				 	circle.lineStyle(2, 0xffd900, 1);
-				  circle.beginFill(0xFF0000, 1);
-		      circle.drawCircle(game.world.centerX, game.world.centerY,  i*100-50);
-					circle.add.sprite(0, 0, 'bg');
-				//sprite = game.add.sprite(0, 0, 'bg');
-				//circle = game.add.graphics(0, 0);
-				//circle.beginFill(0xFF0000, 1);
-				//circle.drawCircle(game.world.centerX, game.world.centerY,  i*100-50);
-				//sprite.mask = circle;
-    	}
-		}
-	</script>
-</body> -->
+</body>
 
 </html>

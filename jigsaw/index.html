@@ -3,24 +3,35 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Jigsaw</title>
+	<script type="text/javascript" src="phaser.min.js"></script>
+
+	<script type="text/javascript">
+	var game = new Phaser.Game(1000, 1000, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+	function preload() {
+	    game.load.image('9', '9.png');
+	}
+
+	function create() {
+		let img = game.add.sprite(game.world.centerX, game.world.centerY, '9');
+		img.anchor.setTo(0.5, 0.5);
+
+		game.world.setBounds(0, 0 ,Game.w ,Game.h);
+
+    game.stage.backgroundColor = '#213D5E';
+    let game_won = false;
+
+    let square = 2;
+
+    //let puzzle = new Puzzle(this.game, this.square);
+		//puzzle.scatter();
+	}
+
+	function update() {}
+
+	</script>
 
 
-	<script type="text/javascript" src="js/lib/phaser.min.js"></script>
-
-
-	<!-- build:js js/main.min.js -->
-	<script type="text/javascript" src="js/load.js"></script>
-	<!-- <script type="text/javascript" src="js/gallery.js"></script> -->
-	<script type="text/javascript" src="js/puzzle.js"></script>
-	<script type="text/javascript" src="js/puzzle_piece.js"></script>
-	<!-- <script type="text/javascript" src="js/menu.js"></script> -->
-	<script type="text/javascript" src="js/play.js"></script>
-	<script type="text/javascript" src="js/game.js"></script>
-	<!-- endbuild -->
-</head>
 <body>
-
-<div id="game"></div>
-
 </body>
 </html>
