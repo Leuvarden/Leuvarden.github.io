@@ -22,7 +22,9 @@
 		let decipher;
 		let title;
 		let textarea;
+		let cipheredMessage;
 		let cipheredText;
+		let decipheredMwssage;
 		let decipheredText;
 
 		function preload() {
@@ -34,28 +36,31 @@
 				game.load.image('5', 'assets/5.png');
 				game.load.image('5', 'assets/5.png');
 				game.load.image('pigeon', 'assets/pigeon.jpg');
-				game.load.image('DECIPHER', 'assets/DECIPHER.png');
+				game.load.image('decipher', 'assets/decipher.png');
 				game.load.bitmapFont('Fira', 'assets/fonts/fira-sans.png', 'assets/fonts/fira-sans.fnt');
 				game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
 		}
 
 		function create() {
+			game.canvas.oncontextmenu = function (e) { e.preventDefault(); } //to prevent pop-up menu on right click
 			game.stage.backgroundColor = '#f95732';
-			title = game.add.bitmapText(game.world.centerX * 0.01, game.world.centerY * 0.01, 'Fira', 'LOST BATALLION\'S \nMESSAGE', 50);
+			title = game.add.bitmapText(10, 10, 'Fira', 'CIPHERED MESSAGE', 50);
 			title.tint = 0x000000;
 
 			textarea = game.add.graphics(0, 0);
 			textarea.beginFill(0xffffff);
-    	textarea.drawRect(game.world.centerX * 0.01, game.world.centerY * 0.5, 420, game.world.height * 0.72);
+    	textarea.drawRect(10, 100, 420, game.world.height * 0.75);
 			textarea.endFill();
 
-			game.add.sprite(game.world.centerX * 0.4, game.world.centerY * 1.2, 'pigeon');
+			game.add.sprite(200, 300, 'pigeon');
 
-			cipheredText = game.add.bitmapText(game.world.centerX * 0.02, game.world.centerY * 0.52, 'Playfair', 'Ck gxk grutm znk xugj vgxgrkrr zu 724.6. Uax uct gxzorrkxe oy jxuvvotm g hgxxgmk joxkizre ut ay. Lux nkgbkty ygqk yzuv oz. ', 24);
+			cipheredMessage = 'Nggnpxba Zbagsnhpbaq Netbaarjvyyf gnegngunyscnf gsvirczorernql';
+			cipheredText = game.add.bitmapText(15, 105, 'Playfair', cipheredMessage, 24);
 			cipheredText.maxWidth = 400;
 			cipheredText.tint = 0x000000;
 
-			decipheredText = game.add.bitmapText(game.world.centerX * 0.02, game.world.centerY * 0.52, 'Playfair', 'We are along the road paralell to 276.4. Our own artillery is dropping a barrage directly on us. For heavens sake stop it.', 24);
+			decipheredMessage = 'Attack on Montfaucon-d\'Argonne will start at half past five pm be \nready';
+			decipheredText = game.add.bitmapText(15, 105, 'Playfair', decipheredMessage, 24);
 			decipheredText.maxWidth = 400;
 			decipheredText.tint = 0x000000;
 			decipheredText.alpha = 0;
@@ -77,7 +82,6 @@
 				circle.inputEnabled = true;
 				if (name !== 'center') {
 					circle.angle = getRandomAngle();
-					//circle.events.onInputDown.add(rotateCircle, this);
 					circle.events.onInputOver.add(mouseOver, this);
 					circle.events.onInputOut.add(mouseOut, this);
 					circle.tint = 0xcacaca;
