@@ -13,7 +13,6 @@
 
 
 function preload() {
-	game.load.image('pigeon-left', 'assets/pigeons-left-corner.png');
 	game.load.image('pigeon-right', 'assets/pigeons-right-corner.png');
 	game.load.image('map', 'assets/map.png');
 	game.load.image('next-button', 'assets/next-button.png')
@@ -31,20 +30,20 @@ function create() {
 	game.add.sprite(game.world.width-450, 0, 'pigeon-right');
 	game.add.sprite(game.world.width-450, game.world.height-300, 'map');
 
-	title = game.add.bitmapText(10, 10, 'Fira', 'WAR PIGEONS', 50);
+	title = game.add.bitmapText(10, 10, 'Fira', 'HOW TO PLAY', 50);
 	title.tint = 0x000000;
 
 	textarea = game.add.graphics(0, 0);
 	textarea.beginFill(0xffffff);
-	textarea.drawRect(10, 80, 450, 250);
+	textarea.drawRect(10, 80, 540, 300);
 	textarea.endFill();
 
-	intro = 'During the First and Second World Wars, pigeons were used to transport messages.\nA carrier pigeon\'s job was dangerous. Nearby enemy soldiers often tried to shoot them down, knowing that birds were carrying important messages.';
+	intro = 'Your task is to deliver a message over given time. \nUse arrow keys or «W A S D» to control the bird. To increase pigeon’s speed, hold «D», but look out — acceleration reduces your power. If power is low, pigeon will get tired and unable to deliver a message. Collect fruits and first aid kits to regain it.\n Avoid bullets and war hawks — a little pigeon can’t survive serious damage.';
 	introText = game.add.bitmapText(15, 85, 'Playfair', intro, 24);
-	introText.maxWidth = 420;
+	introText.maxWidth = 530;
 	introText.tint = 0x000000;
 
-	game.add.sprite(322, 350, 'next-button');
+	game.add.sprite(322, 390, 'next-button');
 }
 
 	</script>
