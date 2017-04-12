@@ -45,7 +45,7 @@ h2, h3 {
 }
 
 .connect:hover {
-    background-color: #ef6c00;
+    background-color: #e84545;
     color: #fff;
 }
 
@@ -53,6 +53,8 @@ h2, h3 {
     display: flex;
     background-color: #b0b0b0;
     background-image: url('img/bg1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .inner {
@@ -140,7 +142,6 @@ h2, h3 {
  }
 
   #section-2 {
-    background-color: white;
     color: black;
   }
 
