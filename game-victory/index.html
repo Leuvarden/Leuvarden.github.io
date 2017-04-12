@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Circles</title>
+	<script type="text/javascript" src="phaser.min.js"></script>
+</head>
+
+<body>
+ <script type="text/javascript">
+	var game = new Phaser.Game(1000, 560, Phaser.CANVAS, '', { preload: preload, create: create });
+
+
+function preload() {
+	game.load.bitmapFont('Fira', 'assets/fonts/fira-sans.png', 'assets/fonts/fira-sans.fnt');
+	game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
+	game.load.image('flowers', 'assets/flowers.jpg');
+	game.load.image('watch-credits', 'assets/watch-credits.png');
+	game.load.image('to-menu', 'assets/to-menu.png');
+}
+
+let intro;
+let title;
+let textarea;
+
+function create() {
+	game.stage.backgroundColor = '#f95732';
+
+	game.add.sprite(0, game.world.height-400, 'flowers');
+
+	title = game.add.bitmapText(game.world.centerX, 50, 'Fira', 'YOU DID IT!', 50);
+	title.tint = 0x000000;
+	title.anchor.setTo(0.5, 0.5);
+
+	textarea = game.add.graphics(0, 0);
+	textarea.beginFill(0xffffff);
+	textarea.drawRect(game.world.centerX - 300, 80, 600, 280);
+	textarea.endFill();
+
+	intro = 'Cher Ami became the hero of the war.\nWhile delivering Lost Batallion’s message, she was shot down but managed to take flight again. She arrived back at her loft at division headquarters 40 km to the rear in just 25 minutes, helping to save the lives of the 194 survivors.\nThe pigeon was awarded the Croix de Guerre Medal with a palm Oak Leaf Cluster for her heroic service.';
+	introText = game.add.bitmapText(game.world.centerX - 285, 85, 'Playfair', intro, 24);
+	introText.maxWidth = 580;
+	introText.tint = 0x000000;
+
+	let play = game.add.button(game.world.centerX - 105, game.world.height-100, 'watch-credits', actionOnClick, this, 2, 1, 0);
+	let  menu = game.add.button(game.world.centerX + 105, game.world.height-100, 'to-menu', actionOnClick, this, 2, 1, 0);
+	play.anchor.setTo(0.5, 0.5);
+	menu.anchor.setTo(0.5, 0.5);
+
+	function actionOnClick() {
+
+	}
+}
+
+	</script>
+</body>
+</html>

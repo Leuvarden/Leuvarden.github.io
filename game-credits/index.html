@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Circles</title>
+	<script type="text/javascript" src="phaser.min.js"></script>
+</head>
+
+<body>
+ <script type="text/javascript">
+	var game = new Phaser.Game(1000, 560, Phaser.CANVAS, '', { preload: preload, create: create });
+
+
+function preload() {
+	game.load.image('flowers', 'assets/flowers.jpg');
+	game.load.image('credits', 'assets/credits.png');
+	game.load.image('cher-ami', 'assets/flower-cher-ami.jpg');
+	game.load.image('to-menu', 'assets/to-menu.png');
+}
+
+let intro;
+let title;
+let textarea;
+
+function create() {
+	game.stage.backgroundColor = '#f95732';
+	game.add.sprite(0, game.world.height-600, 'cher-ami');
+
+	let credits = game.add.sprite(game.world.centerX, game.world.height+550, 'credits');
+	credits.anchor.setTo(0.5, 0.5);
+	tween = game.add.tween(credits);
+  tween.to({ y: -1300 }, 20000, 'Linear', true, 0);
+
+	let menu = game.add.button(game.world.width-150, game.world.height-100, 'to-menu', actionOnClick, this, 2, 1, 0);
+	menu.anchor.setTo(0.5, 0.5);
+
+	function actionOnClick() {
+
+	}
+}
+
+	</script>
+</body>
+</html>

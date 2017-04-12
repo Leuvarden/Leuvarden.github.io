@@ -13,10 +13,8 @@
 
 
 function preload() {
-	game.load.image('pigeon-left', 'assets/pigeons-left-corner.png');
-	game.load.image('pigeon-right', 'assets/pigeons-right-corner.png');
-	game.load.image('map', 'assets/map.png');
-	game.load.image('next-button', 'assets/next-button.png')
+	game.load.image('next-button', 'assets/next-button.png');
+	game.load.image('lost', 'assets/lost.png');
 	game.load.bitmapFont('Fira', 'assets/fonts/fira-sans.png', 'assets/fonts/fira-sans.fnt');
 	game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
 }
@@ -28,23 +26,22 @@ let textarea;
 function create() {
 	game.stage.backgroundColor = '#f95732';
 
-	game.add.sprite(game.world.width-450, 0, 'pigeon-right');
-	game.add.sprite(game.world.width-450, game.world.height-300, 'map');
+	game.add.sprite(540, 50, 'lost');
 
-	title = game.add.bitmapText(10, 10, 'Fira', 'WAR PIGEONS', 50);
+	title = game.add.bitmapText(10, 10, 'Fira', 'LOST BATALLION', 50);
 	title.tint = 0x000000;
 
 	textarea = game.add.graphics(0, 0);
 	textarea.beginFill(0xffffff);
-	textarea.drawRect(10, 80, 450, 250);
+	textarea.drawRect(10, 80, 540, 300);
 	textarea.endFill();
 
-	intro = 'During the First and Second World Wars, pigeons were used to transport messages.\nA carrier pigeon\'s job was dangerous. Nearby enemy soldiers often tried to shoot them down, knowing that birds were carrying important messages.';
+	intro = 'Oh, no! The 77th batallion Cher Ami served have trapped in the Argon forest behind enemy lines without food and ammunition. Moreover, they are starting to receive friendly fire from allied troops who did not know their location.\n77th batallion have already sent two pigeons, but all messengers were shooted, and now Cher Ami is their last hope to receive help.';
 	introText = game.add.bitmapText(15, 85, 'Playfair', intro, 24);
-	introText.maxWidth = 420;
+	introText.maxWidth = 530;
 	introText.tint = 0x000000;
 
-	game.add.sprite(322, 350, 'next-button');
+	game.add.sprite(420, 390, 'next-button');
 }
 
 	</script>

@@ -28,15 +28,14 @@
 		let decipheredText;
 
 		function preload() {
-				game.load.image('center', 'assets/center.png');
-				game.load.image('1', 'assets/1.png');
-				game.load.image('2', 'assets/2.png');
-				game.load.image('3', 'assets/3.png');
-				game.load.image('4', 'assets/4.png');
-				game.load.image('5', 'assets/5.png');
-				game.load.image('5', 'assets/5.png');
+				game.load.image('center', 'assets/e-center.png');
+				game.load.image('1', 'assets/e1.png');
+				game.load.image('2', 'assets/e2.png');
+				game.load.image('3', 'assets/e3.png');
+				game.load.image('4', 'assets/e4.png');
+				game.load.image('5', 'assets/e5.png');
+				//game.load.image('6', 'assets/6.png');
 				game.load.image('pigeon', 'assets/pigeon.jpg');
-				game.load.image('decipher', 'assets/decipher.png');
 				game.load.bitmapFont('Fira', 'assets/fonts/fira-sans.png', 'assets/fonts/fira-sans.fnt');
 				game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
 		}
@@ -54,12 +53,12 @@
 
 			game.add.sprite(200, 300, 'pigeon');
 
-			cipheredMessage = 'Nggnpxba Zbagsnhpbaq Netbaarjvyyf gnegngunyscnf gsvirczorernql';
+			cipheredMessage = 'Oauxoausw oeoine onls wdgsaaahsrirnstldtapdF rdotryvth rpiosgeadnreke yoyb elno oept u aonaawnealaier vulgchplroi sroterlte etsftirrt';
 			cipheredText = game.add.bitmapText(15, 105, 'Playfair', cipheredMessage, 24);
 			cipheredText.maxWidth = 400;
 			cipheredText.tint = 0x000000;
 
-			decipheredMessage = 'Attack on Montfaucon-d\'Argonne will start at half past five pm be \nready';
+			decipheredMessage = 'We are along the road paralell to 276.4. Our own artillery is dropping a barrage directly on us. For heavens sake stop it.';
 			decipheredText = game.add.bitmapText(15, 105, 'Playfair', decipheredMessage, 24);
 			decipheredText.maxWidth = 400;
 			decipheredText.tint = 0x000000;
@@ -72,28 +71,28 @@
 			circle5 = createCircle('5');
 			center =  createCircle('center');
 
-			decipher = game.add.sprite(game.world.centerX * 1.43, game.world.centerY, 'DECIPHER');
-			decipher.alpha = 0;
-			decipher.anchor.setTo(0.5, 0.5);
-
 			function createCircle(name) {
 				let circle = game.add.sprite(game.world.centerX * 1.43, game.world.centerY, name);
 				circle.anchor.setTo(0.5, 0.5);
 				circle.inputEnabled = true;
 				if (name !== 'center') {
 					circle.angle = getRandomAngle();
-					circle.events.onInputOver.add(mouseOver, this);
-					circle.events.onInputOut.add(mouseOut, this);
 					circle.tint = 0xcacaca;
-				}
-				if (name!=='1' && name!=='2') {
-					circle.events.onInputDown.add(rotateCircle, this);
-				}
-				if (name === '1') {
-					circle.events.onInputDown.add(rotateCircle1, this);
-				}
-				if (name === '2') {
-					circle.events.onInputDown.add(rotateCircle2, this);
+					if (name!=='1' && name!=='2') {
+						circle.events.onInputDown.add(rotateCircle, this);
+						circle.events.onInputOver.add(mouseOver, this);
+						circle.events.onInputOut.add(mouseOut, this);
+					}
+					if (name === '1') {
+						circle.events.onInputDown.add(rotateCircle1, this);
+						circle.events.onInputOver.add(mouseOver1, this);
+						circle.events.onInputOut.add(mouseOut1, this);
+					}
+					if (name === '2') {
+						circle.events.onInputDown.add(rotateCircle2, this);
+						circle.events.onInputOver.add(mouseOver2, this);
+						circle.events.onInputOut.add(mouseOut2, this);
+					}
 				}
 				return circle;
 			}
@@ -106,7 +105,6 @@
 
 			let isFinished = function() {
 				if (circle1.angle === 0 && circle2.angle === 0 && circle3.angle === 0 && circle4.angle === 0 && circle5.angle === 0) {
-					game.add.tween(decipher).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
 					game.add.tween(cipheredText).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
 					game.add.tween(decipheredText).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
 				}
@@ -163,8 +161,28 @@
 				sprite.tint = 0xffffff;
 			}
 
+			function mouseOver1() {
+				circle1.tint = 0xffffff;
+				circle3.tint = 0xffffff;
+			}
+
+			function mouseOver2() {
+				circle2.tint = 0xffffff;
+				circle5.tint = 0xffffff;
+			}
+
 			function mouseOut(sprite) {
-				 (sprite.angle===0) ? sprite.tint = 0xffffff : sprite.tint = 0xcacaca;
+				 sprite.tint = 0x7b7b7b;
+			}
+
+			function mouseOut1() {
+				circle1.tint = 0x7b7b7b;
+				circle3.tint = 0x7b7b7b;
+			}
+
+			function mouseOut2() {
+				circle2.tint = 0x7b7b7b;
+				circle5.tint = 0x7b7b7b;
 			}
 
 		}

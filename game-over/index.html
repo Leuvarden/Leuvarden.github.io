@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Circles</title>
+	<script type="text/javascript" src="phaser.min.js"></script>
+</head>
+
+<body>
+	<div id="test"></div>
+
+	<script type="text/javascript">
+	var game = new Phaser.Game(1000, 560, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
+
+
+function preload() {
+	game.load.image('forest', 'assets/forest.jpg');
+	game.load.image('play-again', 'assets/play-again.png');
+	game.load.image('to-menu', 'assets/to-menu.png');
+	game.load.bitmapFont('Playfair', 'assets/fonts/playfair.png', 'assets/fonts/playfair.fnt');
+}
+
+function create() {
+	game.stage.backgroundColor = '#f95732';
+
+	game.add.sprite(0, 0, 'forest');
+
+	title = game.add.bitmapText(game.world.centerX, game.world.centerY - 120, 'Playfair', 'Oh, no! Messenger died. Try again?', 35);
+	title.anchor.setTo(0.5, 0.5);
+
+	let play = game.add.button(game.world.centerX - 105, game.world.centerY, 'play-again', actionOnClick, this, 2, 1, 0);
+	let  menu = game.add.button(game.world.centerX + 105, game.world.centerY, 'to-menu', actionOnClick, this, 2, 1, 0);
+	play.anchor.setTo(0.5, 0.5);
+	menu.anchor.setTo(0.5, 0.5);
+
+
+	function actionOnClick() {
+
+	}
+
+
+}
+	</script>
+</body>
+</html>
