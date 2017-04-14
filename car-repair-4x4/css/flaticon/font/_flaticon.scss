@@ -1,0 +1,81 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 18/08/2016 22:23
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-arrows:before { content: "\f100"; }
+.flaticon-brake-disk:before { content: "\f101"; }
+.flaticon-car-tire-change:before { content: "\f102"; }
+.flaticon-change-car-oil:before { content: "\f103"; }
+.flaticon-chassis:before { content: "\f104"; }
+.flaticon-cogwheel:before { content: "\f105"; }
+.flaticon-evacuator:before { content: "\f106"; }
+.flaticon-gears:before { content: "\f107"; }
+.flaticon-mail:before { content: "\f108"; }
+.flaticon-motor:before { content: "\f109"; }
+.flaticon-oil:before { content: "\f10a"; }
+.flaticon-screwdriver-and-wrench:before { content: "\f10b"; }
+.flaticon-shock-absorber:before { content: "\f10c"; }
+.flaticon-steering-wheel:before { content: "\f10d"; }
+.flaticon-tachometer:before { content: "\f10e"; }
+.flaticon-tank:before { content: "\f10f"; }
+.flaticon-telephone:before { content: "\f110"; }
+.flaticon-transmision:before { content: "\f111"; }
+.flaticon-transport:before { content: "\f112"; }
+.flaticon-voltage:before { content: "\f113"; }
+.flaticon-wheel:before { content: "\f114"; }
+    
+    $font-Flaticon-arrows: "\f100";
+    $font-Flaticon-brake-disk: "\f101";
+    $font-Flaticon-car-tire-change: "\f102";
+    $font-Flaticon-change-car-oil: "\f103";
+    $font-Flaticon-chassis: "\f104";
+    $font-Flaticon-cogwheel: "\f105";
+    $font-Flaticon-evacuator: "\f106";
+    $font-Flaticon-gears: "\f107";
+    $font-Flaticon-mail: "\f108";
+    $font-Flaticon-motor: "\f109";
+    $font-Flaticon-oil: "\f10a";
+    $font-Flaticon-screwdriver-and-wrench: "\f10b";
+    $font-Flaticon-shock-absorber: "\f10c";
+    $font-Flaticon-steering-wheel: "\f10d";
+    $font-Flaticon-tachometer: "\f10e";
+    $font-Flaticon-tank: "\f10f";
+    $font-Flaticon-telephone: "\f110";
+    $font-Flaticon-transmision: "\f111";
+    $font-Flaticon-transport: "\f112";
+    $font-Flaticon-voltage: "\f113";
+    $font-Flaticon-wheel: "\f114";

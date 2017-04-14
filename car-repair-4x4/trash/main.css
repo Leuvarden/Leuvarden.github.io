@@ -1,0 +1,150 @@
+@font-face {
+    font-family: Intro;
+    src: url("fonts/Intro.otf");
+}
+
+@font-face {
+    font-family: ElektraLight;
+    src: url("fonts/ElektraLight.otf");
+}
+
+@font-face {
+    font-family: ElektraMedium;
+    src: url("fonts/ElektraMediumPro.otf");
+}
+
+body {
+  font-family: ElektraMedium, sans-serif;
+  font-size: 15px;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style-type: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: Intro, sans-serif;
+  font-size: 20px;
+}
+
+.tile {
+    display: inline-block;
+    overflow: hidden;
+    }
+    .tile a {
+     display: block;
+     height: 100%;
+     width: 100%;
+    }
+
+header {
+  color: white
+}
+
+header a {
+  color: white;
+}
+
+header nav {
+  background-color: rgba(212, 129, 41, 0.5);
+}
+
+
+@media screen and (min-width:300px) and (max-width :1000px) {
+
+header {
+  background-image: url("img/bg-320.jpg");
+}
+
+header nav {
+  width: 100%;
+  /* margin-top: -100px; */
+  position: fixed;
+}
+
+header nav ul {
+  display: none;
+}
+
+header nav .button,
+header nav .logo {
+  display: inline-block;
+
+}
+
+header nav .button {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+header nav .logo {
+  /* height: 100%; */
+  /* width: 50%; */
+}
+
+header .our-sto {
+
+}
+
+main .services .thumb {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+
+}
+
+footer {
+  background-color: #393939;
+  padding-top: 40px;
+  font-family: ElektraLight,sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+footer h5 {
+  color: #a6a6a6;
+  font-size: 14px;
+}
+
+footer ul, footer ol {
+    padding-top: 10px;
+}
+
+footer ul li, footer ol li {
+    padding: 1px;
+}
+
+footer .widgets {
+
+}
+
+footer .col {
+  width: 30%;
+}
+
+footer .copyright {
+  margin: 0 auto;
+
+  text-align: center;
+  width: 130px; padding: 15px;
+}
+
+ footer .copyright a {
+   color: #636363;
+   font-family: ElektraMedium, sans-serif;
+   font-size: 14px;
+
+ }
+
+
+.open-bar {
+  display: visible;
+  position: absolute;
+  top: 0;
+}
