@@ -1,0 +1,352 @@
+body {
+    font-family: 'Source Sans Pro', Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+nav {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.navbar {
+    min-height: 80px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    height: 80px;
+    padding: 0 15px;
+    line-height: 80px;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #506a85;
+}
+
+.navbar-form * {
+    border: none;
+}
+section .btn,
+.carousel .btn {
+    margin-top: 31px;
+    padding: 14px 50px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.btn-success {
+    background-color: #00bc9c;
+}
+
+section:not(.banner) {
+    padding: 80px 0;
+    color: #73879c;
+}
+
+section.banner .carousel-caption {
+    top: 26%;
+    text-shadow: none;
+}
+section.banner .carousel-inner .item:nth-child(5) .carousel-caption {
+    top: 4%;
+}
+section.banner h1 {
+    font-family: 'Lato', Tahoma, sans-serif;
+    font-size: 68px;
+    font-weight: 900;
+}
+
+section.banner p {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+section.banner .carousel-inner .item:nth-child(1) p,
+.carousel-inner .item:nth-child(5) p {
+    color: #a3b1bf;
+}
+
+section.banner .carousel-inner .item:nth-child(3) p {
+    color: #506a85;
+}
+section.banner .carousel-inner .item:nth-child(3) kbd,
+.carousel-inner .item:nth-child(4) kbd {
+    padding: 2px 22px;
+    background-color: #506a85;
+    font-family: 'Source Sans Pro', Tahoma, sans-serif;
+    line-height: 85px;
+}
+
+section.banner .carousel-inner .item img {
+  margin: 0 auto;
+}
+
+.left.carousel-control,
+.right.carousel-control,
+.header-carousel .carousel-indicators {
+  opacity: 0;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.header-carousel:hover .left.carousel-control,
+.header-carousel:hover .right.carousel-control,
+.header-carousel:hover .carousel-indicators {
+  opacity: 1;
+}
+.multiCarousel:hover .left.carousel-control,
+.multiCarousel:hover .right.carousel-control {
+  opacity: 1;
+}
+.header-carousel .carousel-indicators {
+  bottom: -10px;
+  left: calc(50vw - 60px);
+  background-color: white;
+  width: 120px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: none;
+  padding: 3px 0;
+}
+.header-carousel .carousel-indicators li {
+   background-color: #506a85;
+}
+
+.header-carousel .carousel-indicators li.active {
+   background-color: #00bc9c;
+}
+
+.left.carousel-control,
+.right.carousel-control {
+  background-image: none;
+}
+
+.left.carousel-control .glyphicon,
+.right.carousel-control .glyphicon {
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.left.carousel-control:hover .glyphicon,
+.right.carousel-control:hover .glyphicon {
+  color: #00bc9c;
+  background-color: #506a85;
+
+}
+.multiCarousel .carousel-inner {
+  position: relative;
+}
+.multiCarousel a.left.carousel-control,
+.multiCarousel a.right.carousel-control {
+  height: 50px;
+  position: absolute;
+  top: 100%;
+  left: 38%;
+  color: #00bc9c;
+  z-index: 5;
+}
+
+.multiCarousel a.right.carousel-control {
+  left: 47%;
+}
+
+.multiCarousel a.left.carousel-control .glyphicon,
+.multiCarousel a.right.carousel-control .glyphicon {
+  background-color: #c9d2da;
+  color: white;
+  padding: 7px 0px;
+  font-size: 14px;
+}
+
+.multiCarousel  a.left.carousel-control:hover .glyphicon,
+.multiCarousel  a.right.carousel-control:hover .glyphicon {
+  background-color: #506a85;
+  color: #00bc9c;
+}
+
+section .jumbotron {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: transparent;
+}
+
+section.get-in-touch .jumbotron {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+section.who-we-are span {
+    margin-top: 20px;
+    color: #00bc9c;
+    font-size: 78px;
+}
+
+section.latest-works {
+    background-color: #f2f5f7;
+}
+
+section.latest-works .panel-footer {
+    background-color: #ffffff;
+}
+
+section.latest-works figure,
+footer figure {
+  position: relative;
+}
+section.latest-works figure a {
+  color: white;
+  font-size: 14px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 188, 156, 0.9);;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.overlay-from-right {
+  left: 100%;
+  right: 0;
+}
+
+.overlay-from-left {
+  right: 100%;
+  left: 0;
+}
+
+section.latest-works .panel:hover .overlay,
+section.latest-works .carousel-inner .item:hover .overlay,
+footer .latest-works-img figure:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+section.latest-works .panel:hover a {
+  transition: 0.5s ease;
+  color: #00bc9c;
+}
+
+section.latest-works .text,
+footer .text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+section.latest-works .multiCarousel {
+    position: relative;
+}
+
+section.latest-works .multiCarousel ol {
+    bottom: -50px;
+    z-index: 1;
+}
+
+section.latest-works .multiCarousel ol li {
+    border-color: #506a85;
+    background-color: #506a85;
+}
+
+footer .footer-col h4 {
+    color: white;
+    font-weight: 900;
+}
+
+footer .footer-col a {
+    color: #a3b1bf;
+    transition: 0.5s ease;
+}
+
+footer a:hover,
+footer li:hover {
+    color: #00bc9c;
+    text-decoration: none;
+}
+
+footer .footer-col strong a::after {
+    position: relative;
+    right: -3px;
+    content: '→';
+}
+
+footer .footer-col figure {
+  display: inline-block;
+    width: 125px;
+    margin: 0;
+    padding: 5px 5px 0 0;
+}
+
+footer .footer-col h4+a img {
+  margin-bottom: 20px;
+}
+
+footer .input-group {
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #4e5c6c;
+}
+
+footer .form-control {
+    border: none;
+    background-color: #4e5c6c;
+}
+
+footer .input-group-btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+footer input {
+  transition: 0.5s ease;
+}
+
+footer input:active,
+footer input:focus,
+footer input:active .input-group,
+footer input:focus .input-group {
+    background-color: #596675;
+    color: white;
+}
+
+footer .footer-top {
+    padding: 20px 0;
+    color: #acb3ba;
+    background-color: #2f4052;
+}
+
+footer .footer-bottom {
+    padding: 20px 0;
+    color: #707e8c;
+    background-color: #283645;
+}
+
+footer ul {
+    margin: 0;
+    margin-top: -30px;
+}
+
+footer ul a {
+    color: #707e8c;
+}
+
+footer ul li::after {
+    position: relative;
+    right: -5px;
+    content: '·';
+}
