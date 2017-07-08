@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Forms and Widgets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='shortcut icon' type='image/png' href="favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <section class="booking-widget">
+            <div class='booking-widget__header'>
+                <figure>
+                <img src='images/hotel2.jpg'>
+                <figcaption class='header-caption'>
+                    <h3 id="">Hotel Relais</h3>
+                    <div id="" class="header-caption__map-logo">Paris, France</div>
+                </figcaption>         
+                </figure>
+            </div>
+            <form>
+                <ul class='booking-widget__form'>
+                    <li>
+                        <label for='check-in'>Check in</label>
+                        <div class='form-field'>
+                            <input id='check-in' type="text" value="" placeholder="9 July, 2016">
+                            <div class='datepicker'></div>
+                        </div>
+                    </li>
+                    <li>
+                        <label for='check-out'>Check out</label>
+                        <div class='form-field'>
+                            <input id='check-out' type="text" value="" placeholder="19 July, 2016">
+                            <div class='datepicker'></div>
+                        </div>
+                    </li>
+                    <li>
+                        
+                        <label class="form-field__checkbox">
+                            <input class="checkbox" type="checkbox" value="1">
+                            <span>Flexible dates</span>
+                        </label>
+                    </li>
+                    <li>
+                        <div class='form__dropdown'>
+                            <label for='adultsAmount'>Adults</label>
+                            <div class='form-field'> 
+                                <select id='adultsAmount'>    
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='form__dropdown'>
+                            <label for='childrenAmount'>Children</label>
+                            <div class='form-field'> 
+                                <select id='childrenAmount'> 
+                                    <option value="0" selected="selected">0</option>                        
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form__submit__container">
+                        <input type="submit" id='bookingSubmit'class='form__submit' value='Search rooms'>
+                        <div class="form__submit-search-logo"></div>
+                    </li>
+                </ul>       
+            </form>   
+        </section>
+        <section class='calendar'>
+            <div class='calendar__header-month'>
+                    <div class='arrow-left'>&#9001; </div>
+                    <div class='month' id=''>May 2014</div>
+                    <div class='arrow-right'>&#9002;</div> 
+            </div>    
+            <table class='calendar-table'>          
+                <thead>
+                    <tr class='calendar__header-week'>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class='prev-month'>29</td>
+                        <td class='prev-month'>30</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td class='current-day'>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="holiday">7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td class="holiday">23</td>
+                        <td>24</td>
+                        <td>25</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td class="next-month">1</td>
+                        <td class="next-month">2</td>
+                        <td class="next-month">3</td>
+                    </tr>
+                </tbody>    
+            </table>
+            <div class='form'>
+            <input type="submit" class='form__submit' value="Add Event">
+            </div>
+        </section>
+        <section class='destination'>
+            <aside class='destination__icon-bar'>
+                <div class="icon-bar__button button-watch">watch</div>
+                <div class="icon-bar__button button-map">map</div>
+                <div class="icon-bar__button button-fav">star</div>
+            </aside>
+            <article class='article destination__article'>
+                <div class='article__title'>
+                    <h3>My most favourite place in the world</h3>
+                    <p><span class="reviews">154</span> Reviews </p>
+                    
+                </div>
+                <p class='article__text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin.</p>
+                <p class='article__read-more'><a href="#">Read more</a></p>   
+            </article>
+            <figure class='destination__photo'>
+                <img src="images/insta.jpg" alt="photo">
+                <figcaption>
+                    <div class='destination__likes'>
+                         <span id=''>270</span>
+                    </div>
+                    <div class='destination__comments'>
+                        <span id=''>2205</span>
+                    </div>
+                </figcaption>
+            </figure>   
+        </section>    
+        <section class='chart'>
+            <ul class='chart__lines'>
+                <li>40</li>
+                <li>30</li>
+                <li>20</li>
+                <li>0</li>
+            </ul>
+            <ul class="chart__bar-series">
+                <li>
+                    <div class="graph-bar bar-1 pullUp">
+                        <span class="notes">17</span>
+                    </div>
+                    <span class='chart__x-value'>Mon</span>
+                </li>
+                <li>
+                    <div class="graph-bar bar-2 pullUp">
+                        <span class="notes">19</span>
+                    </div>
+                    <span class='chart__x-value'>Tues</span>
+                </li>
+                <li>
+                <div class="graph-bar bar-3 pullUp">
+                    <span class="notes">27</span>
+                    </div>
+                    <span class='chart__x-value'>Wed</span>
+                </li>
+                <li>
+                    <div class="graph-bar bar-4 pullUp">
+                        <span class="notes">32</span>
+                    </div>
+                    <span class='chart__x-value'>Thu</span>
+                </li>
+                <li>
+                    <div class="graph-bar bar-5 pullUp">
+                        <span class="notes">29</span>
+                    </div>
+                    <span class='chart__x-value'>Fri</span>
+                </li>
+                <li>
+                    <div class="graph-bar bar-6 pullUp">
+                        <span class="notes white">34</span>
+                    </div>
+                    <span class='chart__x-value'>Sat</span>
+                </li>
+                <li>
+                    <div class="graph-bar bar-7 pullUp">
+                        <span class="notes">30</span>
+                    </div>
+                    <span class='chart__x-value'>Sun</span>
+                </li>
+            </ul>
+        </section>
+        <section class="email">
+            <form class='email__form'>
+                <ol>
+                     <li>
+                        <div class="email__form-field">
+                            <div class='form-field__addressee'>
+                                rickjames@mail.com
+                                <div class="form-field__addressee-close"></div>
+                            </div>
+                            <input class='form-field__email-input' type='text' placeholder="">
+                            <button class='form-field__new-address'></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="email__form-field">
+                            <input type="text" placeholder="Subject"> 
+                            <label class='file-input__label' for="file-input"><i class="fa fa-paperclip" aria-hidden="true"></i></label>
+                            <input class='file-input' id="file-input" type="file">
+                        </div>
+                    </li>
+                    <li>
+                        <textarea class='email__textarea' placeholder="Message"></textarea>
+                    </li>
+                    <li>
+                        <input class='email__submit-button' type="submit" value="Send">
+                    </li>
+                </ol>
+            </form>
+        </section>
+    </body>
+</html>
