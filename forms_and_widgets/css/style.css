@@ -32,9 +32,16 @@ section {
 }
 
 input[type='text'], button {
+  border: none;
   outline: none;
 }
 
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/*booking*/
 .booking-widget {
   box-sizing: border-box;
   width: 345px;
@@ -50,11 +57,6 @@ input[type='text'], button {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   position: relative;
-}
-
-.booking-widget__header figure {
-  margin: 0;
-  padding: 0;
 }
 
 .header-caption {
@@ -100,11 +102,11 @@ input[type='text'], button {
 }
 
 .form-field__checkbox {
-    width: 32px;
-    height: 26px;
-    display: block;
-    position: relative;
-    margin-right: 5px;
+  display: block;
+  position: relative;
+  width: 32px;
+  height: 26px;
+  margin-right: 5px;
 }
 .form-field__checkbox input[type="checkbox"] {
     -webkit-appearance: none;
@@ -150,8 +152,6 @@ input[type="checkbox"]:checked + span {
   margin-left: 5px;
   padding: 0 0px 0px 3px;
   background-color: #f4f4f4;
-  border: none;
-  outline: none;
 }
 
 .form__dropdown select {
@@ -221,9 +221,9 @@ input[type="checkbox"]:checked + span {
 
 .calendar__header-month {
   box-sizing: border-box;
+  height: 63px;
   border-collapse: collapse;
   border-spacing: 0;
-  height: 63px;
   border-radius: 5px 5px 0 0;
   background-color: #404a58;
   color: white;
@@ -236,14 +236,14 @@ input[type="checkbox"]:checked + span {
   display: inline-block;
   width: 23.5%;
   height: 100%;
+  text-align: center;
   line-height: 60px;
   background-color: transparent;
   transition: .5s ease;
-  text-align: center;
 }
 
 .month {
-  width: 49%;
+  width: 50%;
 }
 
 .arrow-right:hover, 
@@ -269,13 +269,13 @@ input[type="checkbox"]:checked + span {
 
  .calendar-table td {
   border-radius: 5px;
-  cursor: pointer;
   background-color: transparent;
   -webkit-transition: .5s;
   transition: .5s ease;
+  cursor: pointer;
 }
 
-.calendar-table td:hover {
+.calendar-table td:not(.current-day):hover {
   background-color: #f0f0f0;
 }
 
@@ -566,14 +566,14 @@ input[type="checkbox"]:checked + span {
     color: white;
 }
 
-notes::after {
+.notes::after {
     content: '';
     position: absolute;
     right: 18px;
     bottom: -18px;
     border: 10px solid transparent;
     border-top: 10px solid #404a58;
-}
+   }
 
 .graph-bar:hover .notes {
     display:  block;
