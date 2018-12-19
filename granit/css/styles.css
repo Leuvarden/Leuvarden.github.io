@@ -97,7 +97,7 @@
     .letter-space {
         letter-spacing: 3px;
         line-height: 1em;
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 
     #menu-secondary .col-lg-4:not(:first-child) {
@@ -186,7 +186,7 @@
   
   .centered-text {
     position: absolute;
-    top: 23%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -200,6 +200,11 @@
 
   #worktime {
       background: black;
+  }
+
+  #reklama .centered-text {
+      top: 30%;
+      left: 20%;
   }
 
 #reklama img {
@@ -278,6 +283,11 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .text-slightly-less {
+        font-size: 0.4em;
+        line-height: 0.5rem;
+    }
+
     #reklama-body h4 {
         font-size: 1.2em;
         word-break: none;
@@ -291,7 +301,7 @@
         white-space: nowrap;
         margin: 0;
         line-height: 3.2em;
-        margin-bottom: -0.5rem;
+        margin-bottom: -1.5rem;
     }
     
     #reklama-body .follow-text {
@@ -310,6 +320,39 @@
     #reklama-body > p:nth-child(4){
         margin-top: 0rem;
     }
-    
+
+    .image-container {
+        position: relative;
+        text-align: center;
+      }
+
+      .image-container img {
+      width: 100%;
+      }
+
+      #worktime {
+        white-space: nowrap;
+      }
+
+      .has-separator-center {
+        margin-bottom: 20px;
+      }
+
+      #myCarousel p span.text-highlighted {
+        font-weight: bold;
+
+    }
+
+    #myCarousel  h1 > span.text-highlighted.text-slightly-less {
+        white-space: nowrap;
+    }
+    #reklama .centered-text {
+        top: 29%;
+        left: 50%;
+    }
+
+    #reklama img {
+        min-height: 53vh;
+    }
   }
 
