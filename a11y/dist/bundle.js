@@ -27694,7 +27694,7 @@ var Menu = function () {
                 'aria-label': 'Change Options',
                 'style': 'display: block;',
                 'role': 'dialog',
-                'class': 'card-body form-group bg-white dropdown-menu'
+                'class': 'p-3 pr-6 form-group bg-white border border-dark'
             });
             this.$widgetContainer.append(this.$widgetButton).append(this.$widgetDiv);
 
@@ -28871,8 +28871,8 @@ var Menu = function () {
             });
             this.$widgetList = (0, _jquery2.default)('<ul>', {
                 'role': 'menu',
-                'aria-label': 'IE menu',
-                'class': 'card-body bg-white dropdown-menu',
+                'aria-label': 'Default menu',
+                'class': 'card-body bg-white list-unstyled px-2 py-1',
                 'style': 'display: block;'
             });
             this.$widgetContainer.append(this.$widgetButton).append(this.$widgetList);
@@ -28888,7 +28888,7 @@ var Menu = function () {
             this.items.forEach(function (item, index) {
                 var $menuItem = (0, _jquery2.default)('<li>', {
                     'text': item.text,
-                    'class': 'my-2 pl-2 border-light border-bottom-0 border'
+                    'class': 'my-2 pl-2 border-light border-bottom-0 border font-weight-bold'
                 });
                 $menuItem.attr('role', 'menuitem');
                 $menuItem.attr('tabindex', '0');
@@ -28911,6 +28911,29 @@ var Menu = function () {
             this.$widgetButton.click(function () {
                 return _this2.togglePopup();
             });
+            this.$widgetButton.keydown(function (event) {
+                var $firstItem = _this2.$dropdownItems[0];
+                var $lastItem = _this2.$dropdownItems[3];
+
+                switch (event.which) {
+
+                    case _KeyCode2.default.DOWN:
+                        event.preventDefault();
+                        if (!_this2.$widgetList.attr("aria-expanded")) {
+                            _this2.expandPopup();
+                            $firstItem.focus();
+                        }
+                        break;
+                    case _KeyCode2.default.UP:
+                        event.preventDefault();
+                        if (!_this2.$widgetList.attr("aria-expanded")) {
+                            _this2.expandPopup();
+                            $lastItem.focus();
+                        }
+                        break;
+                }
+            });
+
             this.$widgetList.keydown(function (e) {
                 return _this2._handleKeydownOnDropdownItems(e);
             });
@@ -29214,10 +29237,6 @@ var _Grid = __webpack_require__(/*! ./Grid */ "./Grid.js");
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _pilList = __webpack_require__(/*! ./pilList */ "./pilList.js");
-
-var _pilList2 = _interopRequireDefault(_pilList);
-
 var _jquery = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -29226,6 +29245,7 @@ var _examplesSection = __webpack_require__(/*! ./examplesSection */ "./examplesS
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import PillList from './pilList'
 var items = [{ text: 'One', isSelected: false }, { text: 'Two', isSelected: false }, { text: 'Three', isSelected: true }, { text: 'Four', isSelected: false }];
 
 var ie = new _examplesSection.ieSection('1-ie');
@@ -29261,196 +29281,22 @@ var ex2Grid = new _Grid2.default(grid);
 //         $(icon).hide()
 //     }
 // })
+// const gridItems = [
+//     {text: 'Groceries', isSelected: false}, 
+//     {text: 'Dining Out', isSelected: false}, 
+//     {text: 'Household', isSelected: true}, 
+//     {text: 'Auto', isSelected: false}
+//     ]
+// $('#ex2 td.menu-wrapper button').toArray().forEach((el, i) => {
+//     let id = 'gridButton'+i;
+//     $(el).attr('id', id);
+
+//     let menu = new Menu(id, gridItems, true);
+//     menu.drawMenu()
+// })
 
 
 // new PillSection('7-list')
-
-/***/ }),
-
-/***/ "./pilList.js":
-/*!********************!*\
-  !*** ./pilList.js ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/*
-*   This content is licensed according to the W3C Software License at
-*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-*/
-var aria = aria || {};
-
-/**
- * ARIA Grid Examples
- * @function onload
- * @desc Initialize the grid examples once the page has loaded
- */
-
-window.addEventListener('load', function () {
-  // Setup Example 1
-  var ex1 = document.getElementById('ex3');
-  var ex1Grid = new aria.Grid(ex1.querySelector('[role="grid"]'));
-
-  // Setup Example 2
-  var ex2 = document.getElementById('ex4');
-  var ex2Grid = new aria.Grid(ex2.querySelector('[role="grid"]'));
-
-  var pillList = new PillList(ex2Grid, document.getElementById('add-recipient-input'), document.getElementById('add-recipient-button'), document.getElementById('form-action-text'));
-
-  // Setup Example 3
-  var ex3 = document.getElementById('ex3');
-  var ex3Grid = new aria.Grid(ex3.querySelector('[role="grid"]'));
-  var startIndexText = document.getElementById('ex3_start_index');
-  var endIndexText = document.getElementById('ex3_end_index');
-  var previousButton = document.getElementById('ex3_pageup_button');
-  var nextButton = document.getElementById('ex3_pagedown_button');
-  ex3Grid.setPaginationChangeHandler(function (startIndex, endIndex) {
-    startIndexText.innerText = startIndex + 1;
-    endIndexText.innerText = endIndex + 1;
-    if (startIndex <= 0) {
-      previousButton.setAttribute('disabled', 'true');
-    } else {
-      previousButton.removeAttribute('disabled');
-    }
-    if (endIndex >= 18) {
-      nextButton.setAttribute('disabled', 'true');
-    } else {
-      nextButton.removeAttribute('disabled');
-    }
-  });
-  previousButton.addEventListener('click', ex3Grid.movePageUp.bind(ex3Grid));
-  nextButton.addEventListener('click', ex3Grid.movePageDown.bind(ex3Grid));
-
-  // Setup NUX; activates when the first grid cell is focused
-  var gridNUX = document.getElementById('grid-nux');
-  var firstGridCell = document.querySelector('#ex1 [tabindex="0"]');
-  var NUXclose = document.getElementById('close-nux-button');
-  var closeNUX = function closeNUX() {
-    aria.Utils.addClass(gridNUX, 'hidden');
-    firstGridCell.focus();
-  };
-  var setupInstructions = function setupInstructions() {
-    firstGridCell.removeEventListener('focus', setupInstructions);
-    aria.Utils.removeClass(gridNUX, 'hidden');
-
-    NUXclose.addEventListener('click', closeNUX);
-    NUXclose.addEventListener('keyup', function (event) {
-      if (event.which === aria.KeyCode.RETURN) {
-        closeNUX();
-      }
-    });
-  };
-  firstGridCell.addEventListener('focus', setupInstructions);
-});
-
-function PillList(grid, input, submitButton, formUpdateText) {
-  // Hardcoded to work for example 2
-  this.pillIDs = { length: 2, 1: true, 2: true };
-  this.nextPillID = 3;
-  this.grid = grid;
-  this.input = input;
-  this.submitButton = submitButton;
-  this.formUpdateText = formUpdateText;
-
-  this.input.addEventListener('keydown', this.checkSubmitItem.bind(this));
-  this.submitButton.addEventListener('click', this.submitItemForm.bind(this));
-  this.grid.gridNode.addEventListener('click', this.checkRemovePill.bind(this));
-  this.grid.gridNode.addEventListener('keydown', this.checkRemovePill.bind(this));
-};
-
-PillList.prototype.checkSubmitItem = function (event) {
-  var key = event.which || event.keyCode;
-
-  if (key === aria.KeyCode.RETURN) {
-    this.submitItemForm();
-  }
-};
-
-PillList.prototype.getRecipientsString = function () {
-  var recipientCount = this.pillIDs.length;
-  if (recipientCount === 1) {
-    return '1 recipient total.';
-  } else {
-    return recipientCount + ' recipients total.';
-  }
-};
-
-PillList.prototype.submitItemForm = function () {
-  var newItem = this.input.value;
-  this.addPillItem(newItem);
-  this.input.value = '';
-  this.input.focus();
-  this.formUpdateText.innerText = newItem + ' added. ' + this.getRecipientsString();
-};
-
-PillList.prototype.addPillItem = function (recipientName) {
-  var id = this.nextPillID;
-
-  if (!recipientName) {
-    return;
-  }
-
-  var newPillItem = document.createElement('div');
-  newPillItem.setAttribute('role', 'row');
-  newPillItem.setAttribute('data-id', 'id');
-  newPillItem.className = 'pill-item';
-
-  newPillItem.innerHTML = '<span role="gridcell">' + '<a id="r' + id + '" class="pill-name" tabindex="-1" href="#">' + recipientName + '</a>' + '</span>' + '<span role="gridcell">' + '<span id="rb' + id + '" class="pill-remove" tabindex="-1" role="button"' + 'aria-label="Remove" aria-labelledby="rb' + id + ' r' + id + '">' + 'X' + '</span>' + '</span>';
-
-  this.grid.gridNode.append(newPillItem);
-  this.grid.setupFocusGrid();
-
-  if (this.grid.grid.length === 1) {
-    this.grid.focusedRow = undefined;
-    this.grid.focusedCol = undefined;
-    this.grid.setFocusPointer(0, 0);
-  }
-
-  this.nextPillID++;
-  this.pillIDs[id] = true;
-  this.pillIDs.length++;
-};
-
-PillList.prototype.checkRemovePill = function (event) {
-  var pillItem, pillID, pillName;
-  var isClickEvent = event.type === 'click';
-  var key = event.which || event.keyCode;
-
-  if (!isClickEvent && key !== aria.KeyCode.RETURN && key !== aria.KeyCode.SPACE) {
-    return;
-  }
-
-  if (event.target.className === 'pill-remove') {
-    pillItem = event.target.parentNode.parentNode;
-    pillID = pillItem.getAttribute('data-id');
-    pillName = pillItem.querySelector('.pill-name').innerText;
-  } else {
-    return;
-  }
-
-  delete this.pillIDs[pillID];
-  this.pillIDs.length--;
-  this.formUpdateText.innerText = pillName + ' removed. ' + this.getRecipientsString();
-
-  pillItem.remove();
-  this.grid.setupFocusGrid();
-
-  if (this.grid.isValidCell(this.grid.focusedRow, this.grid.focusedCol)) {
-    // First, try to focus on the next pill
-    this.grid.focusCell(this.grid.focusedRow, this.grid.focusedCol);
-  } else if (this.grid.isValidCell(--this.grid.focusedRow, this.grid.focusedCol)) {
-    // If there is no next pill, try to focus on the previous pill
-    this.grid.focusCell(this.grid.focusedRow, this.grid.focusedCol);
-  }
-};
-
-exports.default = PillList;
 
 /***/ }),
 
@@ -29505,7 +29351,7 @@ var SelectableMenu = function (_Menu) {
             var _this2 = this;
 
             this.items.forEach(function (item, index) {
-                var $menuItem = (0, _jquery2.default)('<li>' + item.text + '</li>');
+                var $menuItem = (0, _jquery2.default)('<li class="text-center">' + item.text + '</li>');
                 $menuItem.attr('role', 'menuitemcheckbox');
                 $menuItem.attr('tabindex', '0');
 
@@ -29544,6 +29390,7 @@ var SelectableMenu = function (_Menu) {
             switch (event.which) {
                 case _KeyCode2.default.ENTER:
                     this._handleSelect($currentItem);
+                    this.collapsePopup();
                     break;
                 case _KeyCode2.default.SPACE:
                     event.preventDefault();
@@ -29601,7 +29448,7 @@ exports.default = SelectableMenu;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row  py-3\">\r\n        <div class=\"col\">\r\n            <h4>Dialog with radios</h4>\r\n            <div class=\"d-flex justify-content-center align-items-center\">\r\n                <div id=\"menuContainer3\" class=\"card\"></div>\r\n\r\n            </div>\r\n        </div>\r\n        <div class=\"col demo-notes\">\r\n            <div>\r\n                <h4>Code</h4>\r\n                    <pre  class=\"prettyprint\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;div role=\"dialog\" style=\"display:none\" aria-label=\"Some dialog\"&gt;\r\n    &lt;label&gt;\r\n        &lt;input name=\"dialogRadio\" type=\"radio\"&gt;\r\n        One\r\n    &lt;/label&gt;\r\n    &lt;label&gt;\r\n        &lt;input name=\"dialogRadio\" type=\"radio\"&gt;\r\n        Two\r\n    &lt;/label&gt;\r\n    ...\r\n    &lt;button&gt;Apply changes&lt;/button&gt;\r\n    &lt;button&gt;Close&lt;/button&gt;\r\n&lt;/div&gt;</code></pre>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Dialog Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable</span>  \r\n                    <br><span class=\"text-info\">*click on the button, dialog opens*</span>\r\n                    <br>Change Options <span class=\"text-success\">dialog expanded</span> \r\n                    <br>Three <span class=\"text-success\">radio button checked 1 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
+module.exports = "<div class=\"row  py-3\">\r\n        <div class=\"col\">\r\n            <h4>Dialog with radios</h4>\r\n            <div class=\"d-flex justify-content-center \" >\r\n                <div id=\"menuContainer3\" class=\"w-50\"></div>\r\n            </div>\r\n\r\n            <h5>Keyboard instructions</h5>\r\n            <ul>\r\n                    <li>When a dialog opens, focus moves to an element inside the dialog.</li>\r\n                    <li><kbd>Tab</kbd>:\r\n                      <ul>\r\n                        <li>Moves focus to the next tabbable element inside the dialog.</li>\r\n                        <li>If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog. </li>\r\n                      </ul>\r\n                    </li>\r\n                    <li><kbd>Shift + Tab</kbd>:\r\n                      <ul>\r\n                        <li>Moves focus to the previous tabbable element inside the dialog.</li>\r\n                        <li>If focus is on the first tabbable element inside the dialog, moves focus to the last tabbable element inside the dialog.</li>\r\n                      </ul>\r\n                    </li>\r\n                  <li><kbd>Escape</kbd>: Closes the dialog.</li>\r\n                  </ul>\r\n    \r\n            <h4>Links</h4>\r\n            <ul>\r\n                <li>\r\n                    <a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal\" \r\n                    class=\"font-weight-bold\" target=\"_blank\">WAI-ARIA Dialog (Modal)</a>\r\n                </li>\r\n                <li><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio\" target=\"_blank\">Input group</a></li>\r\n            </ul>\r\n\r\n            <h4>Notes</h4>\r\n            <ul>\r\n                <li>\r\n                    When <code>&lt;input type=\"radio\"&gt;</code> have the same <code>name</code> attribute, it is possible to navigate through each by <kbd>Up Arrow, Down Arrow</kbd> without adding event listeners.\r\n                </li>\r\n                <li><code>role=\"dialog\"</code> hides everything outside the element for NVDA Links list. </li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"col demo-notes\">\r\n            <div>\r\n                <h4>Code</h4>\r\n                    <pre  class=\"prettyprint\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;div role=\"dialog\" style=\"display:none\" aria-label=\"Some dialog\"&gt;\r\n    &lt;label&gt;\r\n        &lt;input name=\"dialogRadio\" type=\"radio\"&gt;\r\n        One\r\n    &lt;/label&gt;\r\n    &lt;label&gt;\r\n        &lt;input name=\"dialogRadio\" type=\"radio\"&gt;\r\n        Two\r\n    &lt;/label&gt;\r\n    ...\r\n    &lt;button&gt;Apply changes&lt;/button&gt;\r\n    &lt;button&gt;Close&lt;/button&gt;\r\n&lt;/div&gt;</code></pre>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Dialog Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable</span>  \r\n                    <br><span class=\"text-info\">*click on the button, dialog opens*</span>\r\n                    <br>Change Options <span class=\"text-success\">dialog expanded</span> \r\n                    <br>Three <span class=\"text-success\">radio button checked 1 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -29612,7 +29459,7 @@ module.exports = "<div class=\"row  py-3\">\r\n        <div class=\"col\">\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row  py-3 bg-light\">\r\n        <div class=\"col\">\r\n            <h4>Menu with checkboxes</h4>\r\n            <div class=\"d-flex justify-content-center\">\r\n                <div id=\"menuContainer2\"  class=\"card\"></div>\r\n\r\n            </div>\r\n        </div>\r\n        <div class=\"col demo-notes\">\r\n            <div>\r\n                <h4>Code</h4>\r\n                <div class=\"bg-light\">\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;ul role=\"menu\" style=\"display:none\" aria-label=\"Some menu\"&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">One&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">Two&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\" aria-checked=\"true\">Three&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">Four&lt;/li&gt;\r\n...\r\n&lt;/ul&gt;\r\n                        </code>\r\n                    </pre>\r\n                </div>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Menu Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable</span>    \r\n                    <br>\r\n                    <br>One <span class=\"text-success\">not checked 1 of 4</span>\r\n                    <br>Two <span class=\"text-success\">not checked 2 of 4</span>\r\n                    <br>Three <span class=\"text-success\">checked 3 of 4</span>\r\n                    <br>Four <span class=\"text-success\">not checked 4 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
+module.exports = "<div class=\"row  py-3 bg-light\">\r\n        <div class=\"col\">\r\n            <h4>Menu with checkboxes</h4>\r\n            <div class=\"d-flex justify-content-center\">\r\n                <div id=\"menuContainer2\"  class=\"card\"></div>\r\n            </div>\r\n            <h4>Keyboard instructions</h4>\r\n            <h5>Menu:</h5>\r\n            <ul>\r\n                <li><kbd>Enter</kbd>: Activates the item and closes the menu.\r\n                </li>\r\n                <li>(Optional): When focus is on a <code>menuitemcheckbox</code>, changes the state without closing the menu.\r\n                </li>\r\n            </ul>\r\n    \r\n            <h4>Links</h4>\r\n            <ul >\r\n                <li>\r\n                    <a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#menu\" \r\n                    class=\"font-weight-bold\"  target=\"_blank\">WAI-ARIA Menu or Menu bar</a>\r\n                </li>\r\n                <li>\r\n                    <a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html\" \r\n                        class=\"font-weight-bold\"  target=\"_blank\">Menu Example</a>\r\n                    </li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"col demo-notes\">\r\n            <div>\r\n                <h4>Code</h4>\r\n                <div class=\"bg-light\">\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;ul role=\"menu\" style=\"display:none\" aria-label=\"Some menu\"&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">One&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">Two&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\" aria-checked=\"true\">Three&lt;/li&gt;\r\n    &lt;li role=\"menuitemcheckbox\" tabindex=\"0\">Four&lt;/li&gt;\r\n&lt;/ul&gt;\r\n                        </code>\r\n                    </pre>\r\n                </div>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Menu Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable</span>    \r\n                    <br>\r\n                    <br>One <span class=\"text-success\">not checked 1 of 4</span>\r\n                    <br>Two <span class=\"text-success\">not checked 2 of 4</span>\r\n                    <br>Three <span class=\"text-success\">checked 3 of 4</span>\r\n                    <br>Four <span class=\"text-success\">not checked 4 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -29623,7 +29470,7 @@ module.exports = "<div class=\"row  py-3 bg-light\">\r\n        <div class=\"col
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Simplified example https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html-->\r\n\r\n\r\n<div class=\"row py-3\">\r\n  <div id=\"ex2\" class=\"col\">\r\n    <h4>Grid as table</h4>\r\n    <table role=\"grid\" aria-labelledby=\"grid2Label\" class=\"data table\">\r\n      <tbody>\r\n        <tr>\r\n          <th aria-sort=\"none\">\r\n            <span tabindex=\"0\" role=\"button\">Date</span>\r\n          </th>\r\n          <th tabindex=\"-1\">Description</th>\r\n          <th tabindex=\"-1\">Category</th>\r\n          <th aria-sort=\"ascending\">\r\n            <span tabindex=\"-1\" role=\"button\">Amount</span>\r\n          </th>\r\n\r\n        </tr>\r\n\r\n        <tr>\r\n          <td tabindex=\"-1\">02-Jan-16</td>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">Down Town\r\n                Grocery</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu2\">Groceries\r\n            </button>\r\n            <ul role=\"menu\" id=\"menu2\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$250.00</td>\r\n\r\n        </tr>\r\n        <tr>\r\n          <td tabindex=\"-1\">03-Jan-16</td>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">Hot Coffee</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu3\">Dining Out\r\n            </button>\r\n            <ul role=\"menu\" id=\"menu3\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$9.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td tabindex=\"-1\">04-Jan-16</td>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">The Filling\r\n                Station</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu4\">Auto</button>\r\n            <ul role=\"menu\" id=\"menu4\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$88.00</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <div id=\"gridIcon\"><img src=\"./img/keyboard(2).png\" alt=\"keyboard icon\"></div>\r\n\r\n  </div>\r\n  <div class=\"col demo-notes\">\r\n    <div>\r\n      <h4>Code</h4>\r\n      <div>\r\n        <pre class=\"prettyprint lang-html\"><code>&lt;table&gt;\r\n  &lt;tbody&gt;\r\n    &lt;tr&gt;\r\n      &lt;th&gt;Date&lt;/th&gt;\r\n      ....\r\n    &lt;tr&gt;\r\n    &lt;tr&gt;\r\n      &lt;th&gt;02-Jan-16&lt;/th&gt;\r\n      ....\r\n    &lt;tr&gt;\r\n    ....\r\n  &lt;tbody&gt;\r\n&lt;table&gt;</code></pre>\r\n      </div>\r\n      <h4>Screenreader text</h4>\r\n      <p class=\"text-monospace text-white bg-black border rounded\">\r\n          caret enters \"Date\" cell\r\n          <br><span class=\"text-success\">column 1</span> Date\r\n          <br>caret enters \"02-Jan-16\" cell\r\n          <br><span class=\"text-success\">row 2 Date column 1</span> 02-Jan-16\r\n      </p>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<!-- Simplified example https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html-->\r\n\r\n\r\n<div class=\"row py-3\">\r\n  <div id=\"ex2\" class=\"col mx-3\">\r\n    <h4>Grid as table</h4>\r\n    <table role=\"grid\" aria-labelledby=\"grid2Label\" class=\"data table table-hover my-3\">\r\n      <thead class=\"table-primary\">\r\n        <tr>\r\n          <th aria-sort=\"none\" scope=\"col\">\r\n            <span tabindex=\"0\" role=\"button\">Date</span>\r\n          </th>\r\n          <th tabindex=\"-1\" scope=\"col\">Description</th>\r\n          <th tabindex=\"-1\" scope=\"col\">Category</th>\r\n          <th aria-sort=\"ascending\" scope=\"col\">\r\n            <span tabindex=\"-1\" role=\"button\">Amount</span>\r\n          </th>\r\n\r\n        </tr>\r\n      </thead>\r\n        <tbody>\r\n        <tr>\r\n          <th tabindex=\"-1\" scope=\"row\">02-Jan-16</th>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">Down Town\r\n                Grocery</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu2\">Groceries\r\n            </button>\r\n            <ul role=\"menu\" id=\"menu2\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$250.00</td>\r\n\r\n        </tr>\r\n        <tr>\r\n          <th tabindex=\"-1\" scope=\"row\">03-Jan-16</th>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">Hot Coffee</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu3\">Dining Out\r\n            </button>\r\n            <ul role=\"menu\" id=\"menu3\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$9.00</td>\r\n        </tr>\r\n        <tr>\r\n          <th tabindex=\"-1\" scope=\"row\">04-Jan-16</th>\r\n          <td>\r\n            <div class=\"editable-text\">\r\n              <span class=\"edit-text-button\" tabindex=\"-1\" role=\"button\">The Filling\r\n                Station</span>\r\n              <input class=\"edit-text-input hidden\" tabindex=\"-1\" value=\"\">\r\n            </div>\r\n          </td>\r\n          <td class=\"menu-wrapper\">\r\n            <button tabindex=\"-1\" aria-haspopup=\"true\" aria-controls=\"menu4\">Auto</button>\r\n            <ul role=\"menu\" id=\"menu4\" tabindex=\"-1\" style=\"display: none;\">\r\n              <li role=\"menuitem\" tabindex=\"-1\">Income</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Groceries</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Dining Out</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Auto</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Household</li>\r\n              <li role=\"menuitem\" tabindex=\"-1\">Beauty</li>\r\n            </ul>\r\n          </td>\r\n          <td tabindex=\"-1\">$88.00</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n\r\n    <!-- <div id=\"gridIcon\"><img src=\"./img/keyboard(2).png\" alt=\"keyboard icon\"></div> -->\r\n\r\n\r\n    <h4>Keyboard instructions</h4>\r\n    <ul>\r\n        <li>\r\n          <kbd>Right Arrow, Left Arrow</kbd>: Moves focus one cell to the side.\r\n          If focus is on the right(left)-most cell in the row, focus does not move.\r\n        </li>\r\n        <li><kbd>Down Arrow, Up Arrow</kbd>: Moves focus one cell up(down). If focus is on the top(bottom) cell in the column, focus does not move.</li>\r\n        <li><kbd>Home</kbd>: moves focus to the first cell in the row that contains focus.</li>\r\n        <li><kbd>End</kbd>: moves focus to the last cell in the row that contains focus.</li>\r\n        <li><kbd>Control + Home</kbd>: moves focus to the first cell in the first row.</li>\r\n        <li><kbd>Control + End</kbd>: moves focus to the last cell in the last row.</li>\r\n      </ul>\r\n\r\n    <h4>Links</h4>\r\n    <ul class=\"list-unstyled\">\r\n        <li><a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#grid\" class=\"font-weight-bold\" target=\"_blank\">WAI-ARIA Grid description</a></li>\r\n        <li><a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html\" class=\"font-weight-bold\" target=\"_blank\">Data Grid Examples</a></li>\r\n    </ul>\r\n\r\n    <h4>Notes</h4>\r\n    <ul class=\"list-unstyled\">\r\n        <li>Grid navigation with arrows won't work with NVDA, since it overrides arrows to work like <kbd>Tab</kbd></li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"col demo-notes\">\r\n    <div>\r\n      <h4>Code</h4>\r\n      <div>\r\n<pre class=\"prettyprint lang-html\"><code>&lt;table role=\"grid\"&gt;\r\n    &lt;thead&gt;\r\n      &lt;tr&gt;\r\n        &lt;th&gt;Date&lt;/th&gt;\r\n        &lt;th&gt;Description&lt;/th&gt;\r\n        &lt;th&gt;Category&lt;/th&gt;\r\n        &lt;th aria-sort=\"ascending\"&gt;Amount&lt;/th&gt;\r\n      &lt;/tr&gt;\r\n    &lt;/thead&gt;\r\n    &lt;tbody&gt;\r\n      &lt;tr&gt;\r\n        &lt;td&gt;02-Jan-16&lt;/td&gt;\r\n          &lt;td&gt;\r\n            &lt;div&gt;\r\n              &lt;input value=\"\"&gt;\r\n            &lt;/div&gt;\r\n          &lt;/td&gt;\r\n          &lt;td&gt;\r\n            &lt;button&gt;Groceries&lt;/button&gt;\r\n          &lt;/td&gt;\r\n          &lt;td&gt;$250.00&lt;/td&gt;\r\n      &lt;tr&gt;\r\n      /*....and so on*/\r\n    &lt;/tbody&gt;\r\n&lt;/table&gt;</code></pre>\r\n      </div>\r\n      <h4>Screenreader text</h4>\r\n      <p class=\"text-monospace text-white bg-black border rounded\">\r\n          caret enters \"Date\" cell\r\n          <br><span class=\"text-success\">column 1</span> Date\r\n          <br>caret enters \"02-Jan-16\" cell\r\n          <br><span class=\"text-success\">row 2 Date column 1</span> 02-Jan-16\r\n      </p>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -29634,7 +29481,7 @@ module.exports = "<!-- Simplified example https://www.w3.org/TR/wai-aria-practic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row py-3\">\r\n    <div class=\"col\">\r\n        <h4>Default menu</h4>\r\n        <div class=\"row\">\r\n            <div class=\"col-6 d-flex justify-content-center align-items-center\">\r\n                <div id=\"ieContainer1\" class=\"dropdown\"></div>\r\n            </div>\r\n            <div class=\"col-6 demo-notes\">\r\n                    <h4>Code</h4>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;li role=\"menuitem\" tabindex=\"0\">One&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Two&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Three&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Four&lt;/li&gt;</code></pre>\r\n                    <h4>Screenreader text</h4>\r\n                    <p class=\"text-monospace text-white bg-black border rounded pl-1\">\r\n                            <span class=\"text-info\">*focus is on the item*</span>\r\n                        <br>One \r\n                        <br>Two\r\n                        <br>Three \r\n                        <br>Four\r\n                    </p>\r\n            </div>\r\n        </div>\r\n        <h4>Menu with IE support</h4>\r\n        <div class=\"row bg-light\">\r\n            <div class=\"col-6 d-flex justify-content-center align-items-center\">\r\n                <div id=\"ieContainer2\" class=\"dropdown\"></div>\r\n            </div>\r\n            <div class=\"col-6 demo-notes\">\r\n                    <h4>Code</h4>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"1\">One&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"2\">Two&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"3\">Three&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"4\">Four&lt;/li&gt;</code></pre>\r\n                    <h4>Screenreader text</h4>\r\n                    <p class=\"text-monospace text-white bg-black border rounded\">\r\n                            <span class=\"text-info\">*focus is on the item*</span>\r\n                        <br>One <span class=\"text-success\">1 of 4</span>\r\n                        <br>Two <span class=\"text-success\">2 of 4</span>\r\n                        <br>Three <span class=\"text-success\">3 of 4</span>\r\n                        <br>Four <span class=\"text-success\">4 of 4</span>\r\n                    </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n</div>"
+module.exports = "<div class=\"row py-3\">\r\n    <div class=\"col\">\r\n        <h4>Default menu</h4>\r\n        <div class=\"row\">\r\n            <div class=\"col-6 d-flex justify-content-center align-items-center\">\r\n                <div id=\"ieContainer1\" class=\"dropdown\"></div>\r\n                <h4>Links</h4>\r\n                <ul>\r\n                    <li>\r\n                        <a href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/53\" \r\n                        class=\"font-weight-bold\" target=\"_blank\">JAWS explanation of the bug</a>\r\n                    </li>\r\n                    <li><a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#feed\" target=\"_blank\">\r\n                        When to use aria-setsize and aria-posinset</a></li>\r\n                        <li><a href=\"https://www.w3.org/TR/wai-aria-1.1/#aria-posinset\" target=\"_blank\">\r\n                            WAI-ARIA aria-posinset</a></li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"col-6 demo-notes\">\r\n                    <h4>Code</h4>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;li role=\"menuitem\" tabindex=\"0\">One&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Two&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Three&lt;/li&gt;\r\n&lt;li role=\"menuitem\" tabindex=\"0\">Four&lt;/li&gt;</code></pre>\r\n                    <h4>Screenreader text</h4>\r\n                    <p class=\"text-monospace text-white bg-black border rounded pl-1\">\r\n                            <span class=\"text-info\">*focus is on the item*</span>\r\n                        <br>One \r\n                        <br>Two\r\n                        <br>Three \r\n                        <br>Four\r\n                    </p>\r\n            </div>\r\n        </div>\r\n        <h4>Menu with IE support</h4>\r\n        <div class=\"row bg-light\">\r\n            <div class=\"col-5 d-flex justify-content-center align-items-center\">\r\n                <div id=\"ieContainer2\" class=\"dropdown\"></div>\r\n            </div>\r\n            <div class=\"col-7 demo-notes\">\r\n                    <h4>Code</h4>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;ul role=\"menu\"&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"1\">One&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"2\">Two&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"3\">Three&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\" aria-setsize=\"4\" aria-posinset=\"4\">Four&lt;/li&gt;\r\n&lt;/ul&gt;</code></pre>\r\n                    <h4>Screenreader text</h4>\r\n                    <p class=\"text-monospace text-white bg-black border rounded\">\r\n                            <span class=\"text-info\">*focus is on the item*</span>\r\n                        <br>One <span class=\"text-success\">1 of 4</span>\r\n                        <br>Two <span class=\"text-success\">2 of 4</span>\r\n                        <br>Three <span class=\"text-success\">3 of 4</span>\r\n                        <br>Four <span class=\"text-success\">4 of 4</span>\r\n                    </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -29656,7 +29503,7 @@ module.exports = "<div class=\"row  py-3\">\r\n    <div class=\"col\">\r\n      
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row py-3\">\r\n        <div class=\"col\">\r\n            <h4>Menu with plain text items</h4>\r\n            <div class=\"d-flex justify-content-center align-items-center\">\r\n                <div id=\"menuContainer1\"  class=\"card\"></div>\r\n\r\n            </div>\r\n        </div>\r\n        <div class=\"col demo-notes\">\r\n            <div>\r\n                <h4>Code</h4>\r\n                <div>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;ul role=\"menu\" style=\"display:none\" aria-label=\"Some menu\"&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">One&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">Two&lt;/li&gt;\r\n...\r\n&lt;/ul&gt;\r\n                        </code>\r\n                    </pre>\r\n                </div>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Menu Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable </span>\r\n                    <br><span class=\"text-info\">*Menu is open and focus on the first element</span>\r\n                    <br>One <span class=\"text-success\">1 of 4</span>\r\n                    <br>Two <span class=\"text-success\">2 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
+module.exports = "<div class=\"row py-3\">\r\n        <div class=\"col-5\">\r\n            <h4>Menu with plain text items</h4>\r\n            <div class=\"d-flex justify-content-center align-items-center\">\r\n                <div id=\"menuContainer1\"  class=\"card\"></div>\r\n\r\n            </div>\r\n            <h4>Keyboard instructions</h4>\r\n            <h5>Menu Button</h5>\r\n            <ul>\r\n                <li class=\"py-1\"><kbd>Enter</kbd>: opens the menu and places focus on the first menu item.</li>\r\n                <li class=\"py-1\"><kbd>Space</kbd>: Opens the menu and places focus on the first menu item.</li>\r\n                <li class=\"py-1\">(Optional) <kbd>Down Arrow</kbd>: opens the menu and moves focus to the first menu item.</li>\r\n                <li class=\"py-1\">(Optional) <kbd>Up Arrow</kbd>: opens the menu and moves focus to the last menu item.</li>  \r\n            </ul>\r\n\r\n            <h5>Menu</h5>\r\n            <ul>\r\n                    <li>\r\n                      When a <code>menu</code> opens, or when a <code>menubar</code> receives focus,\r\n                      keyboard focus is placed on the first item.\r\n                    </li>\r\n                    <li><kbd>Enter</kbd>: Activates the item and closes the menu.\r\n                    </li>\r\n                    <li><kbd>Space</kbd>:(Optional): When focus is on a <code>menuitem</code>, activates the <code>menuitem</code> and closes the menu.\r\n                    </li>\r\n                    <li><kbd>Down Arrow, Up Arrow</kbd>: Moves focus to the next(previous) item, optionally wrapping from the last to the first.\r\n                    </li>\r\n                    <li><kbd>Home</kbd>: If arrow key wrapping is not supported, moves focus to the first item in the current <code>menu</code> or <code>menubar</code>.</li>\r\n                    <li><kbd>End</kbd>: If arrow key wrapping is not supported, moves focus to the last item in the current <code>menu</code> or <code>menubar</code>.</li>\r\n                    <li>Any key that corresponds to a printable character (Optional): Move focus to   the next menu item in the current menu whose label begins with that printable character.</li>\r\n                    <li><kbd>Escape</kbd>: Close the menu that contains focus and return focus to   the element or context, e.g., menu button or parent <code>menuitem</code>, from which the menu was opened. </li>\r\n                    <li><kbd>Tab</kbd>: Moves focus to the next element in the tab sequence, and if the item that had focus is not in a <code>menubar</code>, closes its <code>menu</code> and all open parent <code>menu</code> containers.</li>\r\n                    <li><kbd>Shift + Tab</kbd>: Moves focus to the previous element in the tab sequence, and if the item that had focus is not in a <code>menubar</code>, closes its <code>menu</code> and all open parent <code>menu</code> containers.</li>\r\n                  </ul>\r\n    \r\n            <h4>Links</h4>\r\n            <ul >\r\n                <li>\r\n                    <a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton\" \r\n                    class=\"font-weight-bold\">WAI-ARIA Menu Button</a>\r\n                </li>\r\n                <li>\r\n                    <a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html\" \r\n                        class=\"font-weight-bold\">Menu Example</a>\r\n                    </li>\r\n            </ul>\r\n\r\n            <h4>Notes</h4>\r\n            <ul>\r\n                <li class=\"py-1\">Javascript event <code>element.addEventListener(\"click\", () => {...})</code> includes pressing <kbd>Enter</kbd> and <kbd>Space</kbd>, but does not affect <kbd>Down arrow</kbd></li>\r\n                <li class=\"py-1\">Generally, adding aria-attributes does not add any keyboard navigation</li>\r\n                <li class=\"py-1\">Standard browser behavior: <kbd>Up Arrow</kbd>, <kbd>Down arrow</kbd>, <kbd>Space</kbd> scroll browser page. Don't forget to add \r\n                    <code>event.preventDefault()</code> to event hadlers.\r\n                </li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"col-7 demo-notes\">\r\n            <div>\r\n                <h4>HTML</h4>\r\n                <div>\r\n                    <pre class=\"prettyprint lang-html\"><code>&lt;button aria-haspopup=\"true\"&gt;Menu button &lt;/button&gt;\r\n&lt;ul role=\"menu\" style=\"display:none\" aria-label=\"Some menu\"&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">One&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">Two&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">Three&lt;/li&gt;\r\n    &lt;li role=\"menuitem\" tabindex=\"0\">Four&lt;/li&gt;\r\n&lt;/ul&gt;</code></pre>\r\n                </div>\r\n                <h4>Screenreader text</h4>\r\n                <p class=\"text-monospace text-white bg-black border rounded\">\r\n                    <span class=\"text-info\">*focus on the button*</span>\r\n                    <br>Menu Button\r\n                    <br><span class=\"text-success\">menu button subMenu clickable </span>\r\n                    <br><span class=\"text-info\">*Menu is open and focus on the first element</span>\r\n                    <br>One <span class=\"text-success\">1 of 4</span>\r\n                    <br>Two <span class=\"text-success\">2 of 4</span>\r\n                    <br>Three <span class=\"text-success\">3 of 4</span>\r\n                    <br>Four <span class=\"text-success\">4 of 4</span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -29667,7 +29514,7 @@ module.exports = "<div class=\"row py-3\">\r\n        <div class=\"col\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Simplified example https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html-->\r\n\r\n\r\n<div class=\"row py-3\">\r\n    <div class=\"col\">\r\n        <h4>Table with plain text items</h4>\r\n        <table class=\"table\">\r\n            <tbody>\r\n                <tr>\r\n                    <th>Date</th>\r\n                    <th>Description</th>\r\n                    <th>Category</th>\r\n                    <th>Amount</th>\r\n                </tr>\r\n\r\n                <tr>\r\n                    <td>02-Jan-16</td>\r\n                    <td>Down Town Grocery></td>\r\n                    <td>Groceries</td>\r\n                    <td>$250.00</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>03-Jan-16</td>\r\n                    <td>Hot Coffee</td>\r\n                    <td>Dining Out</td>\r\n                    <td>$9.00</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>04-Jan-16</td>\r\n                    <td>The Filling Station</td>\r\n                    <td>Auto</td>\r\n                    <td>$88.00</td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n    <div class=\"col demo-notes\">\r\n        <div>\r\n            <h4>Code</h4>\r\n            <div>\r\n                <pre class=\"prettyprint lang-html\"><code>&lt;table&gt;\r\n    &lt;tbody&gt;\r\n        &lt;tr&gt;\r\n            &lt;th&gt;Date&lt;/th&gt;\r\n            ....\r\n        &lt;tr&gt;\r\n        &lt;tr&gt;\r\n            &lt;th&gt;02-Jan-16&lt;/th&gt;\r\n            ....\r\n        &lt;tr&gt;\r\n        ....\r\n    &lt;tbody&gt;\r\n&lt;table&gt;</code></pre>\r\n            </div>\r\n            <h4>Screenreader text</h4>\r\n            <p class=\"text-monospace text-white bg-black border rounded\">\r\n                <span class=\"text-info\">caret enters \"Date\" cell</span>\r\n                <br><span class=\"text-success\">column 1</span> Date\r\n                <br><span class=\"text-info\">caret enters \"02-Jan-16\" cell</span>\r\n                <br><span class=\"text-success\">row 2 Date column 1</span> 02-Jan-16\r\n            </p>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<!-- Simplified example https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html-->\r\n\r\n\r\n<div class=\"row py-3\">\r\n    <div class=\"col mx-3\">\r\n        <h4>Table with plain text items</h4>\r\n        <table class=\"table table-hover my-3\">\r\n            <thead class=\"table-primary\">\r\n                <tr>\r\n                    <th scope=\"col\">Date</th>\r\n                    <th scope=\"col\">Description</th>\r\n                    <th scope=\"col\">Category</th>\r\n                    <th scope=\"col\">Amount</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr>\r\n                    <th scope=\"row\">02-Jan-16</th>\r\n                    <td><a href=\"javascript:void(0);\">Down Town Grocery</a></td>\r\n                    <td>Groceries</td>\r\n                    <td>$250.00</td>\r\n                </tr>\r\n                <tr>\r\n                    <th scope=\"row\">03-Jan-16</th>\r\n                    <td><a href=\"javascript:void(0);\">Hot Coffee</a></td>\r\n                    <td>Dining Out</td>\r\n                    <td>$9.00</td>\r\n                </tr>\r\n                <tr>\r\n                    <th scope=\"row\">04-Jan-16</th>\r\n                    <td><a href=\"javascript:void(0);\">The Filling Station</a></td>\r\n                    <td>Auto</td>\r\n                    <td>$88.00</td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n\r\n        <h4>Keyboard instructions</h4>\r\n        <ul class=\"list-unstyled\">\r\n                <li class=\"font-weight-bold\">Not applicable</li>\r\n        </ul>\r\n\r\n        <h4>Links</h4>\r\n        <ul class=\"list-unstyled\">\r\n            <li><a href=\"https://www.w3.org/TR/wai-aria-practices-1.1/#table\" class=\"font-weight-bold\">WAI-ARIA Table</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"col demo-notes\">\r\n        <div>\r\n            <h4>Code</h4>\r\n            <div>\r\n                <pre class=\"prettyprint lang-html\"><code>&lt;table&gt;\r\n    &lt;thead&gt;\r\n        &lt;tr&gt;\r\n            &lt;th&gt;Date&lt;/th&gt;\r\n            &lt;th&gt;Description&lt;/th&gt;\r\n            &lt;th&gt;Category&lt;/th&gt;\r\n            &lt;th&gt;Amount&lt;/th&gt;\r\n        &lt;/tr&gt;\r\n    &lt;/thead&gt;\r\n    &lt;tbody&gt;\r\n        &lt;tr&gt;\r\n        &lt;tr&gt;\r\n             &lt;td&gt;02-Jan-16&lt;/td&gt;\r\n             &lt;td&gt;&lt;a href=\"#\"&gt;Down Town Grocery&lt;/a&gt;&lt;/td&gt;\r\n             &lt;td&gt;Groceries&lt;/td&gt;\r\n             &lt;td&gt;$250.00&lt;/td&gt;\r\n        &lt;tr&gt;\r\n        /*....and so on*/\r\n    &lt;/tbody&gt;\r\n&lt;/table&gt;</code></pre>\r\n            </div>\r\n            <h4>Screenreader text</h4>\r\n            <p class=\"text-monospace text-white bg-black border rounded\">\r\n                <span class=\"text-info\">caret enters \"Date\" cell</span>\r\n                <br><span class=\"text-success\">column 1</span> Date\r\n                <br><span class=\"text-info\">caret enters \"02-Jan-16\" cell</span>\r\n                <br><span class=\"text-success\">row 2 Date column 1</span> 02-Jan-16\r\n            </p>\r\n\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ })
 
