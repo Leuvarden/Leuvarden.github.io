@@ -13,3 +13,139 @@
     border-bottom: 0;
     border-left: .3em solid transparent;
 }
+
+.list-group-item.bg-light a {
+    color: black;
+}
+
+.list-group-item.active {
+    background-color: #009A4C;
+}
+
+.list-group-item.active a {
+    color: white;
+}
+
+.items {
+    width: 320px;
+    padding-top: 30px;
+    margin: 0 10px;
+}
+
+.items ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.items li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.items img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+}
+
+.single-icon {
+    width: 19.5%;
+}
+
+.pt-0, .py-0 {
+    padding-top: 0 !important;
+}
+
+@media (max-width: 600px) {
+
+    .carousel-caption h1,
+    .carousel-caption span {
+        font-size: 1.2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        background-color: rgba(0, 0, 0, 0.2)
+    }
+
+    .single-icon {
+        width: 46.5%;
+        margin-top: 20px;
+        /* color: black; */
+    }
+
+    .single-icon:last-child{
+        margin-left: 21%;
+    }
+
+    .single-icon .text-muted {
+        color: black;
+    }
+
+    #odd-tiles {
+       display: flex;
+       flex-wrap: wrap;
+    }
+
+    .t-card {
+        flex: 0 1 auto;
+        width: 47%;
+        margin: 5px 4px;
+        height: 130px;
+    }
+
+    .t-card .card-title {
+        margin-top: 2.75rem;
+    }
+
+    .newsLinks {
+        margin-top: 2.5rem;
+        border-top: 1px solid lightsteelblue;
+        width: 100%;
+    }
+
+    .newsLinks button {
+        color: #00865e;
+        margin: 10px 10px;
+        font-weight: 700;
+        background: transparent;
+        border: none;
+    }
+    
+    .newsLinks button.active {
+        color: #000;
+        border-bottom: none;
+        font-size: 1.3rem;
+    }
+    img.logo {
+        width: 110px;
+        height: 60px;
+    }
+
+    .nav-img {
+        height: 86px;
+        /* margin-top: .5rem; */
+        /* margin-bottom: 0.5rem; */
+    }
+
+    .info1.info1-header .image svg {
+        height: 20px;
+        fill: black;
+    }
+
+    .image {
+        min-width: 28px;
+        margin-right: 10px;
+    }
+
+    .carousel-caption {
+        width: auto;
+    }
+}
