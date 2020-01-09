@@ -8,20 +8,16 @@
   margin-bottom: -1px !important;
   position: relative;
 }
-
 .tab-content {
   padding: 2rem;
 }
-
 .tab-pane {
   display: none;
 }
-
 .tab-pane.is-active {
   display: block;
   position: relative;
 }
-
 .is-active {
   display: initial;
 }
@@ -45,7 +41,6 @@
   overflow: hidden;
   max-width: 100%;
 }
-
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
@@ -85,10 +80,10 @@
   position: relative;
   transition: all 0.2s ease-in-out;
 }
-
 .is-shady:hover {
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(0, 0, 0, 0.19);
 }
+
 
 .has-same-height .card {
   height: 350px;
@@ -96,7 +91,7 @@
 }
 
 .skills-content .media + .media {
-  margin-top: 0.5rem;
+  margin-top: .5rem;
 }
 
 .skills-content .progress {
@@ -108,8 +103,8 @@
 }
 
 .info-tiles {
-  margin: 0.75rem auto;
-  padding: 0 0.75rem;
+  margin: .75rem auto;
+  padding: 0 .75rem;
 }
 
 .button.is-primary.is-alt {
@@ -121,20 +116,87 @@
   margin-bottom: 1rem;
 }
 
+.button.is-info{
+  background-color: darkblue;
+}
+
+.subtitle,
+.title{
+  color: black;
+}
+.hero.is-info{
+  background-color: darkblue;
+}
+.hero.is-info .tabs.is-boxed.main-menu li.is-active a{
+  color: darkblue;
+}
+
+.card .tag:not(body).is-danger {
+  background-color: darkred;
+  color: white;
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+}
+
+.external-link-icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 3px;
+  background: url("../img/icn-external-link.svg");
+  background-size: contain;
+}
+
+.forum-list .tag:not(body).is-primary{
+  background-color: green;
+}
+
+.forum-list .tag:not(body).is-danger {
+  background-color: darkred;
+}
+
+.forum-list .tag:not(body).is-success {
+  background-color: green;
+}
+
+.field .help.is-success {
+  color: darkgreen;
+}
+
+.field .help.is-danger  {
+  color: darkred;
+}
+
+.media-right .has-text-grey-light{
+  color: #363636 !important;
+}
+
+.columns .title,
+.column a,
+.content a{
+  color: darkblue;
+}
 .post {
   margin: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e6eaee;
+  border-bottom: 1px solid #E6EAEE;
 }
-
 .post:last-child {
   padding-bottom: 0;
   border-bottom: none;
 }
 
 .forum-list li {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
+
 
 @media screen and (max-width: 1087px) {
   .navbar-menu {
@@ -183,49 +245,23 @@ li {
   background-size: contain;
 }
 
-a:focus,
-input:focus,
-button:focus {
-  border-radius: 2px;
-  outline: 0;
-  box-shadow: 0 0 2px 1.5px #fff, 0 0 3px 3px #000;
+input.input:focus,
+ textarea:focus, 
+ select:focus {
+  border: 2px solid dodgerblue;
 }
 
-.is-5 {
-  color: #000;
+input.is-danger:focus{
+  border: 2px solid red;
 }
 
-.button.is-info,
-.hero.is-info {
-  background-color: #27389b;
-}
-.button.is-info:hover {
-  background-color: #303d86;
+input.is-success:focus{
+  border: 2px solid greenyellow;
 }
 
-.tag.is-danger {
-  background-color: #a72c23 !important;
-}
-.tag.is-danger:hover {
-  background-color: #913029;
-}
-
-.has-text-grey-light {
-  color: rgb(49, 48, 48) !important;
-}
-
-.column a,
-.content a {
-  color: rgb(24, 69, 141);
-}
-
-.visuallyhidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
+a:focus, button:focus,
+input[type=checkbox]:focus,
+input[type=radio]:focus,
+.button:focus:not(:active) {
+  outline: 2px solid dodgerblue;
 }
